@@ -90,11 +90,6 @@ i {
     background-color: white;
 }
 
-.correto {
-    background-color: rgb(118, 193, 23);
-    transform: rotateY(180deg);
-}
-
 .errado {
     background-color: rgb(216, 209, 174);
     transform: rotateY(180deg);
@@ -102,6 +97,11 @@ i {
 
 .existente {
     background-color: rgb(255, 199, 0);
+    transform: rotateY(180deg);
+}
+
+.correto {
+    background-color: rgb(118, 193, 23);
     transform: rotateY(180deg);
 }
 
