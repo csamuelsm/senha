@@ -1,0 +1,123 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    padding: 5px;
+}
+
+.header {
+    margin-bottom: 10px;
+}
+
+.senha-button {
+    padding: 3px 15px 3px 15px;
+    border: 0;
+    color: white;
+    background-color: black;
+    border-radius: 4px;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 14px;
+}
+
+i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.senha-logo {
+    width: 60%;
+}
+
+@media (max-width: 1024px)
+{
+    .senha-logo {
+        width: 100%;
+    }
+}
+
+.tile {
+    width: 45px;
+    height: 45px;
+    margin: 1px;
+    background-color: rgb(243, 244, 244);
+    cursor: pointer;
+    font-family: 'Roboto';
+    font-size: 28px;
+    text-align: center;
+    transition: transform 0.8s, background-color 0.3s ease-in-out 0.1s;
+}
+
+.board {
+    margin-bottom: 10px;
+}
+
+.keyboard {
+    margin-bottom: 10px;
+}
+
+.keyboard-button {
+    border: 1px solid #929292;
+    margin: 2px;
+    min-width: 30px;
+    padding: 4px 5px 4px 5px;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-size: 18px;
+    background-color: rgb(243, 244, 244);
+    transition: transform 0.8s, background-color 0.3s ease-in-out 0.1s;
+}
+
+.keyboard-button:hover {
+    background-color: rgb(225, 225, 225);
+}
+
+.special-button {
+    background-color: rgb(249, 243, 211);
+    color: rgb(68, 53, 1);
+}
+
+.special-button:hover {
+    background-color: rgb(230, 224, 192);
+}
+
+.selected {
+    -moz-box-shadow:    inset 0 3px 4px #a5a5a5;
+    -webkit-box-shadow: inset 0 3px 4px #a5a5a5;
+    box-shadow:         inset 0 3px 4px #a5a5a5;
+    background-color: white;
+}
+
+.correto {
+    background-color: rgb(118, 193, 23);
+    transform: rotateY(180deg);
+}
+
+.errado {
+    background-color: rgb(216, 209, 174);
+    transform: rotateY(180deg);
+}
+
+.existente {
+    background-color: rgb(255, 199, 0);
+    transform: rotateY(180deg);
+}
+
+.correto p, .errado p, .existente p {
+    transform: rotateY(-180deg);
+}
+
+.keyboard-button p {
+    margin: 0;
+}
+
+.ads {
+    min-height: 80px;
+    background-color: #a5a5a5;
+    font-family: 'Roboto';
+    font-weight: 400;
+    bottom: 0;
+    opacity: 0.5;
+}
