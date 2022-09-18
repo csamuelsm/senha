@@ -1,6 +1,43 @@
 let keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                 ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
-                ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'BACKSPACE']]
+                ['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'BACKSPACE']]
+
+function keyboard_entry(value) {
+    if (value == 'BACKSPACE') {
+        if ($('.board .selected').html() == "") {
+            previous_tile()
+        } else {
+            $('.board .selected').html("")
+        }
+    } else if (value == 'ENTER') {
+        // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
+        if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
+            $('.board .current').effect("shake")
+        } else {
+            fetchWords().then(palavras => {
+                var tentativa = [];
+                $('.board .current .tile').each(function() {
+                    tentativa.push($(this).children('p').eq(0).html())
+                })
+                tentativa = tentativa.join('');
+                var existe = false;
+                for (var i = 0; i < palavras.length; i++) {
+                    if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
+                }
+                if (existe) {
+                    verify_line()
+                    next_line()
+                } else {
+                    $('.board .current').effect("shake")
+                }
+            })
+
+        }
+    } else {
+        $('.board .selected').html("<p>"+value+"</p>")
+        next_tile()
+    }
+}
 
 $(document).ready(function(){
 
@@ -29,24 +66,7 @@ $(document).ready(function(){
     // Keyboard click
 
     $('.keyboard-button').click(function() {
-        if (this.value == 'BACKSPACE') {
-            if ($('.board .selected').html() == "") {
-                previous_tile()
-            } else {
-                $('.board .selected').html("")
-            }
-        } else if (this.value == 'ENTER') {
-            // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
-            if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
-                $('.board .current').effect("shake")
-            } else {
-                verify_line()
-                next_line()
-            }
-        } else {
-            $('.board .selected').html("<p>"+this.value+"</p>")
-            next_tile()
-        }
+        keyboard_entry(this.value);
     })
 
 })
