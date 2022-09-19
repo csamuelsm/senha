@@ -12,6 +12,10 @@ function keyboard_entry(value) {
     } else if (value == 'ENTER') {
         // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
         if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
+            // PALAVRA NÃO PREENCHIDA
+            const t = $('#unfilled');
+            const toast = new bootstrap.Toast(t);
+            toast.show();
             $('.board .current').effect("shake")
         } else {
             fetchWords().then(palavras => {
@@ -28,6 +32,10 @@ function keyboard_entry(value) {
                     verify_line()
                     next_line()
                 } else {
+                    //PALAVRA NÃO EXISTE
+                    const t = $('#invalida');
+                    const toast = new bootstrap.Toast(t);
+                    toast.show();
                     $('.board .current').effect("shake")
                 }
             })

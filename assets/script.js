@@ -1,5 +1,11 @@
 var palavra;
 
+
+let start_date = new Date('09/19/2022');
+let date_now = new Date();
+let diff = date_now.getTime() - start_date.getTime();
+let index = Math.ceil(diff/(1000.0 * 3600.0 * 24.0));
+
 async function fetchWords() {
     const response = await fetch('./assets/words/pt_5.json');
     const json = await response.json();
@@ -9,8 +15,8 @@ async function fetchWords() {
 $(document).ready(function(){
 
     fetchWords().then(palavras => {
-        palavra = palavras[1].word;
-        console.log(palavra);
+        palavra = palavras[index].word;
+        //console.log(palavra);
 
         let lines = [
             $('#line1'),
