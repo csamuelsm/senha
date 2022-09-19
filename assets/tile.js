@@ -25,10 +25,14 @@ function next_line() {
 }
 
 $(document).ready(function(){
-    $('.tile').click(function() {
+    $(document).on("click", ".tile", function() {
+        console.log('click')
         if ($(this).parent().hasClass('current')) {
-            $('.board .selected').removeClass('selected');
+            console.log('current')
+            $('.board .selected').removeClass('selected')
             $(this).addClass('selected')
+        } else {
+            console.log('not current')
         }
     })
 })
