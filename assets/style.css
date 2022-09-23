@@ -105,7 +105,8 @@ i {
     font-family: 'Roboto';
     font-size: 18px;
     background-color: rgb(243, 244, 244);
-    transition: transform 0.8s, background-color 0.3s ease-in-out 0.1s;
+    /*transition: transform 0.8s, background-color 0.3s ease-in-out 0.1s;*/
+    transition: background-color 0.3s ease-in-out 0.1s;
 }
 
 .keyboard-button:hover {
@@ -130,17 +131,17 @@ i {
 
 .errado {
     background-color: rgb(216, 209, 174);
-    transform: rotateY(180deg);
+    /*transform: rotateY(180deg);*/
 }
 
 .existente {
     background-color: rgb(255, 199, 0);
-    transform: rotateY(180deg);
+    /*transform: rotateY(180deg);*/
 }
 
 .correto {
     background-color: rgb(118, 193, 23);
-    transform: rotateY(180deg);
+    /*transform: rotateY(180deg);*/
 }
 
 .shake-effect {
@@ -149,7 +150,7 @@ i {
 }
 
 .correto p, .errado p, .existente p {
-    transform: rotateY(-180deg);
+    /*transform: rotateY(180deg);*/
 }
 
 .keyboard-button p {

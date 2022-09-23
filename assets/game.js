@@ -14,6 +14,7 @@ function verify_line() {
         //let estados = []
         if (tentativa[i].toLowerCase() == palavra.toLowerCase()[i]) {
             $('.board .current .tile').eq(i).addClass('correto')
+            $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
             $('.keyboard-button[value='+tentativa[i]+']').addClass('correto')
             //estados.push('correto')
         } else {
@@ -26,10 +27,12 @@ function verify_line() {
             }
             if (existe) {
                 $('.board .current .tile').eq(i).addClass('existente')
+                $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
                 $('.keyboard-button[value='+tentativa[i]+']').addClass('existente')
                 //estados.push('existente')
             } else {
                 $('.board .current .tile').eq(i).addClass('errado')
+                $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
                 $('.keyboard-button[value='+tentativa[i]+']').addClass('errado')
                 //estados.push('errado')
             }
