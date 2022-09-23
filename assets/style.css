@@ -66,13 +66,13 @@ i {
 .tile {
     width: 45px;
     height: 45px;
-    margin: 1px;
-    background-color: rgb(243, 244, 244);
+    margin: 2px;
+    background-color: rgb(230, 230, 230);
     cursor: pointer;
     font-family: 'Roboto';
     font-size: 28px;
     text-align: center;
-    transition: transform 0.8s, background-color 0.3s ease-in-out 0.1s;
+    transition: transform 0.8s, background-color 0.15s ease-in-out 0.05s;
 }
 
 .board {
@@ -143,12 +143,45 @@ i {
     transform: rotateY(180deg);
 }
 
+.shake-effect {
+    background-color: rgb(250, 0, 0);
+    color: white;
+}
+
 .correto p, .errado p, .existente p {
     transform: rotateY(-180deg);
 }
 
 .keyboard-button p {
     margin: 0;
+}
+
+.modal-body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.yes-button {
+    padding: 8px 15px 8px 15px;
+    border: 0;
+    color: white;
+    background-color: black;
+    border-radius: 4px;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+}
+
+.no-button {
+    padding: 8px 15px 8px 15px;
+    border: 0;
+    background-color: rgb(249, 243, 211);
+    color: black;
+    border-radius: 4px;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
 }
 
 .ads {

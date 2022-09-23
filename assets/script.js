@@ -1,7 +1,7 @@
 var palavra;
 
 
-let start_date = new Date('09/19/2022');
+let start_date = new Date('09/20/2022');
 let date_now = new Date();
 let diff = date_now.getTime() - start_date.getTime();
 let index = Math.ceil(diff/(1000.0 * 3600.0 * 24.0));

@@ -16,7 +16,11 @@ function keyboard_entry(value) {
             const t = $('#unfilled');
             const toast = new bootstrap.Toast(t);
             toast.show();
+            $('.board .current .tile').addClass("shake-effect")
             $('.board .current').effect("shake")
+            $('.board .current').promise().done(function(){
+                $('.board .current .tile').removeClass("shake-effect")
+            })
         } else {
             fetchWords().then(palavras => {
                 var tentativa = [];
@@ -36,7 +40,11 @@ function keyboard_entry(value) {
                     const t = $('#invalida');
                     const toast = new bootstrap.Toast(t);
                     toast.show();
+                    $('.board .current .tile').addClass("shake-effect")
                     $('.board .current').effect("shake")
+                    $('.board .current').promise().done(function(){
+                        $('.board .current .tile').removeClass("shake-effect")
+                    })
                 }
             })
 
@@ -60,7 +68,7 @@ $(document).ready(function(){
                     )
                 } else {
                     $("#keyboard_line"+(i+1)).append(
-                        "<div><button class='keyboard-button special-button' value='"+keyboard[i][j]+"' id='"+keyboard[i][j]+"'><p>"+keyboard[i][j]+"</p></button></div>"
+                        "<div><button class='keyboard-button special-button' value='"+keyboard[i][j]+"' id='"+keyboard[i][j]+"'><p>SEND</p></button></div>"
                     )
                 }
             } else {

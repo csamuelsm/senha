@@ -36,7 +36,7 @@
                     <i class="fa-sharp fa-solid fa-arrow-left"></i>
                 </div>-->
                 <div class="col-12">
-                    <button class="senha-button shadow-sm">GIVE UP</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#quit" class="senha-button shadow-sm">QUIT</button>
                 </div>
             </div>
 
@@ -45,12 +45,12 @@
             </div>
 
             <div class="header-right col-5 text-right d-flex flex-row align-content-between align-items-center">
-                <div class="col-12 text-right">
+                <div class="col-6 text-right">
                     <i class="fa-sharp fa-solid fa-circle-question"></i>
                 </div>
-                <!--<div class="col-6 text-right">
+                <div class="col-6 text-right">
                     <i class="fa-sharp fa-solid fa-gear"></i>
-                </div>-->
+                </div>
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             <div class="col-12 d-flex align-items-center justify-content-center" id="keyboard_line2"></div>
             <div class="col-12 d-flex align-items-center justify-content-center" id="keyboard_line3"></div>
             <div class="col-12 d-flex align-items-center justify-content-center" id="keyboard_line3">
-                <button class='keyboard-button special-button' value='ENTER' id='ENTER'><p>ENTER</p></button>
+                <button class='keyboard-button special-button' value='ENTER' id='ENTER'><p>SEND</p></button>
             </div>
         </div>
     </div>
@@ -83,6 +83,35 @@
             <h3>ADS AREA</h3>
         </div>
     </div>-->
+
+    <!--MODALS-->
+    <div class="modal fade" id="quit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <!--<div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>-->
+            <div class="modal-body">
+                <h6><strong>Desistir?</strong></h6>
+                <p>Tem certeza que deseja desistir? Você está tão próximo!</p>
+                <div class="col-12 row">
+                    <div class="col-6 text-center">
+                        <button class="yes-button">SIM</button>
+                    </div>
+                    <div class="col-6 text-center">
+                        <button class="no-button" data-bs-dismiss="modal">NÃO</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
 
 
     <!--TOASTS-->
