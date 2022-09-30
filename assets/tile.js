@@ -39,7 +39,8 @@ function next_line() {
         $('.board .current').removeClass('current')
 
         const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
-        finishedModal.show()
+
+        setTimeout(function(){finishedModal.show()}, 1000)
     }
 }
 
