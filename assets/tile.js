@@ -34,7 +34,7 @@ function next_line() {
         // ACABARAM AS CHANCE
         // USUÁRIO PERDEU
         Cookies.set('finished', true)
-        Cookies.set('last-played', new Date().setUTCHours(0,0,0,0).getTime())
+        Cookies.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
 
