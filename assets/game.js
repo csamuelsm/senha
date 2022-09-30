@@ -1,3 +1,5 @@
+var delay = 100
+
 function verify_line() {
     var tentativa = []
     $('.board .current .tile').each(function() {
@@ -10,13 +12,19 @@ function verify_line() {
             tentativa.push($(this).children('p').eq(0).html())
         }
     })
+    let estados = []
     for (var i = 0; i < tentativa.length; i++) {
-        //let estados = []
+
+        /*(function(i, tentativa) {
+            setTimeout(function(){
+
+            }, 500)
+        })(i, tentativa);*/
         if (tentativa[i].toLowerCase() == palavra.toLowerCase()[i]) {
             $('.board .current .tile').eq(i).addClass('correto')
-            $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
+            $('.board .current .tile').eq(i).delay(i*delay).effect("bounce", {times:1}, 300)
             $('.keyboard-button[value='+tentativa[i]+']').addClass('correto')
-            //estados.push('correto')
+            estados.push('correto')
         } else {
             let existe = false;
             for (var j = 0; j < palavra.length; j++) {
@@ -27,15 +35,27 @@ function verify_line() {
             }
             if (existe) {
                 $('.board .current .tile').eq(i).addClass('existente')
-                $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
+                $('.board .current .tile').eq(i).delay(i*delay).effect("bounce", {times:1}, 300)
                 $('.keyboard-button[value='+tentativa[i]+']').addClass('existente')
-                //estados.push('existente')
+                estados.push('existente')
             } else {
                 $('.board .current .tile').eq(i).addClass('errado')
-                $('.board .current .tile').eq(i).effect("bounce", {times:1}, 300)
+                $('.board .current .tile').eq(i).delay(i*delay).effect("bounce", {times:1}, 300)
                 $('.keyboard-button[value='+tentativa[i]+']').addClass('errado')
-                //estados.push('errado')
+                estados.push('errado')
             }
         }
+
+    }
+    if (estados.every((e) => e == 'correto')) {
+        // USUÁRIO ACERTOU
+        // JOGO FINALIZA
+        Cookies.set('finished', true)
+        Cookies.set('last-played', new Date().setUTCHours(0,0,0,0).getTime())
+        $('.board .current .selected').removeClass('selected')
+        $('.board .current').removeClass('current')
+
+        const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
+        finishedModal.show()
     }
 }

@@ -16,6 +16,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js" integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="assets/words.js"></script>
     <script src="assets/script.js"></script>
@@ -23,6 +24,7 @@
     <script src="assets/game.js"></script>
     <script src="assets/keyboard.js"></script>
     <script src="assets/typed_keyboard.js"></script>
+    <script src="assets/onboarding.js"></script>
 </head>
 
 <body>
@@ -46,10 +48,10 @@
 
             <div class="header-right col-5 text-right d-flex flex-row align-content-between align-items-center">
                 <div class="col-6 text-right">
-                    <i class="fa-sharp fa-solid fa-circle-question"></i>
+                    <i class="fa-sharp fa-solid fa-circle-question onboarding-show"></i>
                 </div>
                 <div class="col-6 text-right">
-                    <i class="fa-sharp fa-solid fa-gear"></i>
+                    <i class="fa-sharp fa-solid fa-gear configuracoes-show"></i>
                 </div>
             </div>
         </div>
@@ -88,16 +90,16 @@
     <div class="modal fade" id="quit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-            <!--<div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>-->
+            </div>
             <div class="modal-body">
-                <h6><strong>Desistir?</strong></h6>
+                <h6><strong>DESISTIR?</strong></h6>
                 <p>Tem certeza que deseja desistir? Você está tão próximo!</p>
                 <div class="col-12 row">
                     <div class="col-6 text-center">
-                        <button class="yes-button">SIM</button>
+                        <button class="yes-button desistir-button" data-bs-target="#finish" data-bs-toggle="modal">SIM</button>
                     </div>
                     <div class="col-6 text-center">
                         <button class="no-button" data-bs-dismiss="modal">NÃO</button>
@@ -112,11 +114,277 @@
         </div>
     </div>
 
+    <!--ONBOARDING-->
+    <div class="modal fade" id="onboarding-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>Descubra a palvra secreta no Senha!</p>
+                <img src="assets/logo.png" style="height: 150px;width:auto;" alt="logo"/>
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-2" data-bs-toggle="modal">HOW TO PLAY</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onboarding-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>Você poderá enviar até 6 palpites para descobrir a palavra do dia.</p>
+
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile correto"><p>S</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile correto"><p>N</p></div>
+                    <div class="tile correto"><p>H</p></div>
+                    <div class="tile correto"><p>A</p></div>
+                </div>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-3" data-bs-toggle="modal">NEXT 1/5</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onboarding-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>Você poderá enviar um palpite digitando uma palavra e clicando no botao de enviar.</p>
+
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile"><p>C</p></div>
+                    <div class="tile"><p>E</p></div>
+                    <div class="tile"><p>R</p></div>
+                    <div class="tile"><p>T</p></div>
+                    <div class="tile selected"><p>O</p></div>
+                </div>
+
+                <div class="col-12 mt-3 d-flex align-items-center justify-content-center" id="keyboard_line3">
+                    <button class='keyboard-button special-button' id='ENTER'><p>SEND</p></button>
+                </div>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-4" data-bs-toggle="modal">NEXT 2/5</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onboarding-4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>Ao enviar um palpite, você recebe dicas da palavra secreta. A cor verde indica que a letra está correta.</p>
+
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile errado"><p>C</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile errado"><p>R</p></div>
+                    <div class="tile errado"><p>T</p></div>
+                    <div class="tile errado"><p>O</p></div>
+                </div>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-5" data-bs-toggle="modal">NEXT 3/5</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onboarding-5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>A cor amarela indica que a letra existe na palavra, mas está em posição errada. As letras cinzas não existem na palavra secreta.</p>
+
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile errado"><p>P</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile correto"><p>N</p></div>
+                    <div class="tile existente"><p>A</p></div>
+                    <div class="tile existente"><p>S</p></div>
+                </div>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-6" data-bs-toggle="modal">NEXT 4/5</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="onboarding-6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>SENHA</strong></h6>
+                <p>Use as dicas para dar palpites melhores, que te ajudarão a chegar até a palavra secreta.</p>
+
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile errado"><p>C</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile errado"><p>R</p></div>
+                    <div class="tile errado"><p>T</p></div>
+                    <div class="tile errado"><p>O</p></div>
+                </div>
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile errado"><p>P</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile correto"><p>N</p></div>
+                    <div class="tile existente"><p>A</p></div>
+                    <div class="tile existente"><p>S</p></div>
+                </div>
+                <div class="row col-12 d-flex align-items-center justify-content-center">
+                    <div class="tile correto"><p>S</p></div>
+                    <div class="tile correto"><p>E</p></div>
+                    <div class="tile correto"><p>N</p></div>
+                    <div class="tile correto"><p>H</p></div>
+                    <div class="tile correto"><p>A</p></div>
+                </div>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button" data-bs-target="#onboarding-6" data-bs-toggle="modal">LET'S DO IT!</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <!--CONFIGURAÇÕES-->
+    <div class="modal fade" id="configuracoes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <!--<h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>-->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5 row align-items-center justify-content-center">
+                <h6><strong>CONFIGURAÇÕES</strong></h6>
+                <p>Selecione a língua em que você deseja jogar: </p>
+                <select name="language-selector" class="language-selector">
+                    <option value="en" selected>English</option>
+                    <option value="pt">Português</option>
+                    <option value="de">Deutsch</option>
+                </select>
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button">SALVAR</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="finish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <!--<div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>-->
+            <div class="modal-body p-5 text-center row align-items-center justify-content-center">
+                <h6><strong>Jogo Finalizado</strong></h6>
+                <h4>Amanhã tem mais!</h4>
+                <p>Estatísticas aqui</p>
+
+
+                <div class="col-12 row align-items-center justify-content-center">
+                    <div class="row align-items-center mt-4 col-10">
+                        <button class="yes-button">COMPARTILHAR</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="modal-footer">
+                <button type="button" class="btn btn-primary">Sim</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+            </div>-->
+            </div>
+        </div>
+    </div>
 
 
     <!--TOASTS-->
 
-        <div class="toast align-items-center position-absolute bottom-0 start-50 translate-middle-x mb-3" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500" id="invalida">
+        <div class="toast align-items-center position-absolute top-0 start-50 translate-middle-x mt-5" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500" id="invalida">
             <div class="d-flex">
                 <div class="toast-body">
                     A palavra que você digitou é inválida
@@ -125,7 +393,7 @@
             </div>
         </div>
 
-        <div class="toast align-items-center position-absolute bottom-0 start-50 translate-middle-x mb-3" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500" id="unfilled">
+        <div class="toast align-items-center position-absolute top-0 start-50 translate-middle-x mt-5" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2500" id="unfilled">
             <div class="d-flex">
                 <div class="toast-body">
                     Você precisa digitar todas as letras

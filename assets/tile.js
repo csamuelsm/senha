@@ -14,6 +14,15 @@ function previous_tile() {
     }
 }
 
+function backspace() {
+    current = $('.board .current .selected')
+    if (current.prev().length != 0) {
+        current.removeClass('selected')
+        current.prev().addClass('selected')
+        current.prev().html("")
+    }
+}
+
 function next_line() {
     current = $('.board .current')
     if (current.next().length != 0) {
@@ -21,6 +30,16 @@ function next_line() {
         current.removeClass('current')
         current.next().addClass('current')
         $('.board .current .tile').first().addClass('selected')
+    } else {
+        // ACABARAM AS CHANCE
+        // USUÁRIO PERDEU
+        Cookies.set('finished', true)
+        Cookies.set('last-played', new Date().setUTCHours(0,0,0,0).getTime())
+        $('.board .current .selected').removeClass('selected')
+        $('.board .current').removeClass('current')
+
+        const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
+        finishedModal.show()
     }
 }
 

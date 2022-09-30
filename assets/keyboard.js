@@ -5,7 +5,7 @@ let keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 function keyboard_entry(value) {
     if (value == 'BACKSPACE') {
         if ($('.board .selected').html() == "") {
-            previous_tile()
+            backspace()
         } else {
             $('.board .selected').html("")
         }
