@@ -5,6 +5,8 @@ let date_now = new Date();
 let diff = date_now.getTime() - start_date.getTime();
 let index = Math.ceil(diff/(1000.0 * 3600.0 * 24.0));
 
+var win = false;
+
 async function fetchWords() {
     const response = await fetch(database);
     const json = await response.json();
@@ -12,6 +14,14 @@ async function fetchWords() {
 }
 
 $(document).ready(function(){
+
+    if(Cookies.get('share_link')) {
+        //SETANDO SAHRE_LINK COMO O ÚLTIMO SHARE LINK
+        console.log(Cookies.get('share_link'))
+        $('.twitter-share-link').attr("href", Cookies.get('share_link'))
+    } else {
+        //console.log('Share link cookie not set')
+    }
 
     if (Cookies.get('finished')) {
         last_played = new Date(Cookies.get('last-played'))
@@ -23,6 +33,7 @@ $(document).ready(function(){
 
         if (last_played.getTime() === now.getTime()) {
             // USUÁRIO JÁ JOGOU HOJE
+            showStats();
             const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
             finishedModal.show()
         }

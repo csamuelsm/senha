@@ -152,9 +152,9 @@ i {
     color: white;
 }
 
-.correto p, .errado p, .existente p {
-    /*transform: rotateY(180deg);*/
-}
+/*.correto p, .errado p, .existente p {
+    transform: rotateY(180deg);
+}*/
 
 .keyboard-button p {
     margin: 0;
@@ -219,4 +219,18 @@ i {
 .countdown-div p {
     margin: 0;
     font-size: 12px;
+}
+
+.stats-fill {
+    background-color: #FFC700;
+}
+
+.stats .col-12 {
+    padding: 5px;
+}
+
+.stats .col-6 p {
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 0;
 }

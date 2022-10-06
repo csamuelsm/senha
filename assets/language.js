@@ -1,18 +1,32 @@
 function getTextForTwitter(complete_game) {
-    string = "I%20played%20Password!%0%0"
-    for (var i = 0; i < complete_game.lenght; i++) {
-        for (var j = 0; j < complete_game[i].lenght; j++) {
+    var string;
+    if (Cookies.get('lang') == "en") {
+        string = "I%20played%20Password!%0A%0A"
+    } else if (Cookies.get('lang') == "pt") {
+        string = "Eu%20joguei%20Password!%0A%0A"
+    } else if (Cookies.get('lang') == "de") {
+        string = "Ich%20habe%20Password%20gespielt!%0A%0A"
+    } else {
+        string = "I%20played%20Password!%0A%0A"
+    }
+    for (var i = 0; i < complete_game.length; i++) {
+        for (var j = 0; j < complete_game[i].length; j++) {
+            //console.log(complete_game[i][j])
             if (complete_game[i][j] == "correto") {
-                string = string + "U+1F7E9"
+                string = string + "%F0%9F%9F%A9"
             } else if (complete_game[i][j] == "existente") {
-                string = string + "U+1F7E8"
+                string = string + "%F0%9F%9F%A8"
             } else if (complete_game[i][j] == "errado") {
-                string = string + "U+1F7EB"
+                string = string + "%F0%9F%9F%A5"
             }
         }
-        string = string + "%0"
+        string = string + "%0A"
     }
-    string = string + "%0%0https://csamuelsm.github.io/senha"
+    string = string + "%0Ahttps://csamuelsm.github.io/senha"
+
+    Cookies.set("share_link", string)
+    //console.log("Share link cookie now set")
+
     return "https://twitter.com/intent/tweet?text=" + string
 }
 

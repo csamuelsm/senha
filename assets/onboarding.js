@@ -17,6 +17,7 @@ $(document).ready(function(){
 
     $('desistir-button').on('click', function() {
         //USUÁRIO DESISTIU
+        updateStats(complete_game)
         Cookies.set('finished', true)
         Cookies.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')

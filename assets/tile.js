@@ -33,6 +33,7 @@ function next_line() {
     } else {
         // ACABARAM AS CHANCE
         // USUÁRIO PERDEU
+        updateStats(complete_game)
         Cookies.set('finished', true)
         Cookies.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')

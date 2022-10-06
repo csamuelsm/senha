@@ -24,6 +24,7 @@
     <script src="assets/tile.js"></script>
     <script src="assets/game.js"></script>
     <script src="assets/keyboard.js"></script>
+    <script src="assets/statistics.js"></script>
     <script src="assets/typed_keyboard.js"></script>
     <script src="assets/onboarding.js"></script>
     <script src="assets/countdown.js"></script>
@@ -357,7 +358,7 @@
     </div>
 
     <div class="modal" id="finish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
             <!--<div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Desistir?</h5>
@@ -391,7 +392,29 @@
 
                 <hr/>
 
-                <p>Estatísticas aqui</p>
+                <div class="container stats row align-items-center justify-content-center">
+                    <div class="col-12 row stats-fill mb-3">
+                        <div class="col-6">
+                            <p>Sequência de vitórias</p>
+                            <h1 class="streak">0</h1>
+                        </div>
+                        <div class="col-6">
+                            <p>Melhor sequência</p>
+                            <h1 class="best_streak">0</h1>
+                        </div>
+                    </div>
+
+                    <div class="col-12 row">
+                        <div class="col-6">
+                            <p>Tentativas</p>
+                            <h1 class="tries">0</h1>
+                        </div>
+                        <div class="col-6">
+                            <p>Desafios jogados</p>
+                            <h1 class="times_played">0</h1>
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="col-12 row align-items-center justify-content-center">

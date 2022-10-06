@@ -56,6 +56,8 @@ function verify_line() {
     if (estados.every((e) => e == 'correto')) {
         // USUÁRIO ACERTOU
         // JOGO FINALIZA
+        win = true;
+        updateStats(complete_game)
         Cookies.set('finished', true)
         Cookies.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
@@ -65,7 +67,7 @@ function verify_line() {
 
         setTimeout(function(){finishedModal.show()}, 1500)
 
-        console.log(getTextForTwitter(complete_game))
+        //console.log(getTextForTwitter(complete_game))
         $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
     }
 }
