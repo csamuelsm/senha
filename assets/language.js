@@ -1,18 +1,18 @@
 function getTextForTwitter(complete_game) {
-    string = "I%20played%20Password!&#010;&#010;"
+    string = "I%20played%20Password!%0%0"
     for (var i = 0; i < complete_game.lenght; i++) {
         for (var j = 0; j < complete_game[i].lenght; j++) {
             if (complete_game[i][j] == "correto") {
-                string = string + "🟩"
+                string = string + "U+1F7E9"
             } else if (complete_game[i][j] == "existente") {
-                string = string + "🟨"
+                string = string + "U+1F7E8"
             } else if (complete_game[i][j] == "errado") {
-                string = string + "⬛"
+                string = string + "U+1F7EB"
             }
         }
-        string = string + "&#010;"
+        string = string + "%0"
     }
-    string = string + "&#010;&#010;https://csamuelsm.github.io/senha"
+    string = string + "%0%0https://csamuelsm.github.io/senha"
     return "https://twitter.com/intent/tweet?text=" + string
 }
 
