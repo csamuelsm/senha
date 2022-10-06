@@ -4,6 +4,7 @@ let keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
 
 function keyboard_entry(value) {
     //checking if modals are open
+    var modal_open = false;
     if ( $('#quit').hasClass('show')
         || $('#onboarding-1').hasClass('show')
         || $('#onboarding-2').hasClass('show')
@@ -16,60 +17,62 @@ function keyboard_entry(value) {
         {
             // MODAL ESTÁ ABERTO
             // USUÁRIO NÃO PODE DIGITAR NADA
+            modal_open = true;
         }
-        else
-        {
-            if (value == 'BACKSPACE') {
-                if ($('.board .selected').html() == "") {
-                    backspace()
-                } else {
-                    $('.board .selected').html("")
+
+    if (value == 'BACKSPACE') {
+        if ($('.board .selected').html() == "") {
+            backspace()
+        } else {
+            $('.board .selected').html("")
+        }
+    } else if (value == 'ENTER') {
+        // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
+        if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
+            // PALAVRA NÃO PREENCHIDA
+            console.log('unfilled');
+            const t = $('#unfilled');
+            const toast = new bootstrap.Toast(t);
+            toast.show();
+            $('.board .current .tile').addClass("shake-effect")
+            $('.board .current').effect("shake")
+            $('.board .current').promise().done(function(){
+                $('.board .current .tile').removeClass("shake-effect")
+            })
+        } else {
+            fetchWords().then(palavras => {
+                var tentativa = [];
+                $('.board .current .tile').each(function() {
+                    tentativa.push($(this).children('p').eq(0).html())
+                })
+                tentativa = tentativa.join('');
+                var existe = false;
+                for (var i = 0; i < palavras.length; i++) {
+                    if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
                 }
-            } else if (value == 'ENTER') {
-                // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
-                if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
-                    // PALAVRA NÃO PREENCHIDA
-                    const t = $('#unfilled');
+                if (existe) {
+                    verify_line()
+                    next_line()
+                } else {
+                    //PALAVRA NÃO EXISTE
+                    const t = $('#invalida');
                     const toast = new bootstrap.Toast(t);
                     toast.show();
+                    //$('#invalida').toast('show');
                     $('.board .current .tile').addClass("shake-effect")
                     $('.board .current').effect("shake")
                     $('.board .current').promise().done(function(){
                         $('.board .current .tile').removeClass("shake-effect")
                     })
-                } else {
-                    fetchWords().then(palavras => {
-                        var tentativa = [];
-                        $('.board .current .tile').each(function() {
-                            tentativa.push($(this).children('p').eq(0).html())
-                        })
-                        tentativa = tentativa.join('');
-                        var existe = false;
-                        for (var i = 0; i < palavras.length; i++) {
-                            if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
-                        }
-                        if (existe) {
-                            verify_line()
-                            next_line()
-                        } else {
-                            //PALAVRA NÃO EXISTE
-                            const t = $('#invalida');
-                            const toast = new bootstrap.Toast(t);
-                            toast.show();
-                            $('.board .current .tile').addClass("shake-effect")
-                            $('.board .current').effect("shake")
-                            $('.board .current').promise().done(function(){
-                                $('.board .current .tile').removeClass("shake-effect")
-                            })
-                        }
-                    })
-
                 }
-            } else {
-                $('.board .selected').html("<p>"+value+"</p>")
-                next_tile()
-            }
+            })
+
         }
+    } else {
+        if (!modal_open) $('.board .selected').html("<p>"+value+"</p>")
+        next_tile()
+    }
+
 
 }
 

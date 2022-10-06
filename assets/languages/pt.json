@@ -1,0 +1,22 @@
+{
+    "title": "PASSWORD",
+    "onboarding_1": "Descubra a palavra secreta no Senha!",
+    "onboarding_1_button": "COMO JOGAR",
+    "onboarding_2": "Você poderá enviar até 6 palpites para descobrir a palavra do dia",
+    "onboarding_2_button": "PRÓXIMO 1/5",
+    "onboarding_3": "Você poderá enviar um palpite digitando uma palavra e clicando no botão enviar",
+    "onboarding_3_button": "PRÓXIMO 2/5",
+    "onboarding_4": "Ao enviar um palpite, você recebe dicas da palavra secreta. A cor verde indica que a letra está correta.",
+    "onboarding_4_button": "PRÓXIMO 3/5",
+    "onboarding_5": "A cor amarela indica que a letra existe na palavra, mas está em posição errada. As letras cinzas não existem na palavra secreta.",
+    "onboarding_5_button": "PRÓXIMO 4/5",
+    "onboarding_6": "Use as dicas pra dar palpites melhores, que te ajudarão a chegar até a palavra secreta.",
+    "onboarding_6_button": "VAMOS LÁ!",
+    "settings_title": "CONFIGURAÇÕES",
+    "settings_text": "Selecione a língua em que você deseja jogar:",
+    "quit_title": "DESISTIR",
+    "quit_text": "Tem certeza que deseja desistir? Você está tão próximo!",
+    "yes_button": "SIM",
+    "no_button": "NÃO",
+    "send_button": "ENVIAR"
+}
