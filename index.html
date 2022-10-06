@@ -365,11 +365,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>-->
             <div class="modal-body p-5 text-center row align-items-center justify-content-center">
-                <h6><strong>Jogo Finalizado</strong></h6>
-                <h4>Quer jogar mais? Baixe o app!</h4>
+                <h6><strong class="finished_title">Jogo Finalizado</strong></h6>
+                <h4 class="finished_text">Quer jogar mais? Baixe o app!</h4>
 
                 <div class="countdown-div">
-                    <p>Próxima palavra:</p>
+                    <p class="countdown_text">Próxima palavra:</p>
                     <h1 class="countdown"></h1>
                 </div>
 
@@ -379,12 +379,12 @@
                         <div class="accordion-item text-center">
                             <h3 class="accordion-header text-center" id="headingOne">
                             <button class="accordion-button d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <strong>REVELAR RESPOSTA</strong>
+                                <strong class="text_reveal">REVELAR RESPOSTA</strong>
                             </button>
                             </h3>
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body text-center">
-                                A resposta é: <strong></strong>
+                                <span class="answer_text">A resposta é: </span><strong></strong>
                             </div>
                             </div>
                         </div>
@@ -395,22 +395,22 @@
                 <div class="container stats row align-items-center justify-content-center">
                     <div class="col-12 row stats-fill mb-3">
                         <div class="col-6">
-                            <p>Sequência de vitórias</p>
+                            <p class="stats_streak">Sequência de vitórias</p>
                             <h1 class="streak">0</h1>
                         </div>
                         <div class="col-6">
-                            <p>Melhor sequência</p>
+                            <p class="stats_best">Melhor sequência</p>
                             <h1 class="best_streak">0</h1>
                         </div>
                     </div>
 
                     <div class="col-12 row">
                         <div class="col-6">
-                            <p>Tentativas</p>
+                            <p class="stats_tries">Tentativas</p>
                             <h1 class="tries">0</h1>
                         </div>
                         <div class="col-6">
-                            <p>Desafios jogados</p>
+                            <p class="stats_challenges">Desafios jogados</p>
                             <h1 class="times_played">0</h1>
                         </div>
                     </div>
@@ -419,8 +419,8 @@
 
                 <div class="col-12 row align-items-center justify-content-center">
                     <div class="row align-items-center mt-4 col-10">
-                        <a class="twitter-share-link" href="https://twitter.com/intent/tweet?text=I%20played%20Password!">
-                            <button class="yes-button">COMPARTILHAR</button>
+                        <a class="twitter-share-link" href="https://twitter.com/intent/tweet?text=I%20played%20Password!%0A%0Ahttps://csamuelsm.github.io/senha">
+                            <button class="yes-button stats_share">COMPARTILHAR</button>
                         </a>
                     </div>
                 </div>

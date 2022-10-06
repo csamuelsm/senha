@@ -20,5 +20,15 @@
     "no_button": "NEIN",
     "send_button": "SENDEN",
     "invalid_word": "Das von Ihnen übermittelte Wort ist ungültig.",
-    "unfilled_word": "Sie müssen alle Buchstaben eingeben."
+    "unfilled_word": "Sie müssen alle Buchstaben eingeben.",
+    "finished_title": "Fertiges Spiel",
+    "finished_text": "Willst du mehr spielen? Laden Sie die App herunter!",
+    "countdown_text": "Nächstes Wort:",
+    "text_reveal": "ANTWORT ENTDECKEN",
+    "answer_text": "Die Antwort ist: ",
+    "stats_streak": "Siegesserie",
+    "stats_best": "Bester Streifen",
+    "stats_tries": "Versuche",
+    "stats_challenges": "Herausforderungen gespielt",
+    "stats_share": "TEILEN"
 }

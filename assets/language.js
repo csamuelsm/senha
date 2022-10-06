@@ -81,6 +81,18 @@ function createTexts(lang) {
         $('#onboarding-6 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-6 .modal-body .onboarding-text').html(textos['onboarding_6'])
         $('#onboarding-6 .modal-body .yes-button').html(textos['onboarding_6_button'])
+
+        //FINISH MODAL
+        $('.finished_title').html(textos['finished_title'])
+        $('.finished_text').html(textos['finished_text'])
+        $('.countdown_text').html(textos['countdown_text'])
+        $('.text_reveal').html(textos['text_reveal'])
+        $('.answer_text').html(textos['answer_text'])
+        $('.stats_streak').html(textos['stats_streak'])
+        $('.stats_best').html(textos['stats_best'])
+        $('.stats_tries').html(textos['stats_tries'])
+        $('.stats_challenges').html(textos['stats_challenges'])
+        $('.stats_share').html(textos['stats_share'])
     })
 }
 

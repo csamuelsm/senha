@@ -20,5 +20,15 @@
     "no_button": "NÃO",
     "send_button": "ENVIAR",
     "invalid_word": "A palavra que você enviou é inválida.",
-    "unfilled_word": "Você precisa digitar todas as letras."
+    "unfilled_word": "Você precisa digitar todas as letras.",
+    "finished_title": "Jogo Finalizado",
+    "finished_text": "Quer jogar mais? Baixe o app!",
+    "countdown_text": "Próxima palavra:",
+    "text_reveal": "REVELAR RESPOSTA",
+    "answer_text": "A resposta é: ",
+    "stats_streak": "Sequencia de vitórias",
+    "stats_best": "Melhor sequência",
+    "stats_tries": "Tentativas",
+    "stats_challenges": "Desafios jogados",
+    "stats_share": "COMPARTILHAR"
 }
