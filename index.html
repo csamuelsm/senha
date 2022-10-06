@@ -18,6 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js" integrity="sha512-wT7uPE7tOP6w4o28u1DN775jYjHQApdBnib5Pho4RB0Pgd9y7eSkAV1BTqQydupYDB9GBhTcQQzyNMPMV3cAew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script src="assets/language.js"></script>
     <script src="assets/words.js"></script>
     <script src="assets/script.js"></script>
     <script src="assets/tile.js"></script>
@@ -25,6 +26,7 @@
     <script src="assets/keyboard.js"></script>
     <script src="assets/typed_keyboard.js"></script>
     <script src="assets/onboarding.js"></script>
+    <script src="assets/countdown.js"></script>
 </head>
 
 <body>
@@ -87,7 +89,7 @@
     </div>-->
 
     <!--MODALS-->
-    <div class="modal fade" id="quit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="quit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -115,7 +117,7 @@
     </div>
 
     <!--ONBOARDING-->
-    <div class="modal fade" id="onboarding-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -140,7 +142,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="onboarding-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -173,7 +175,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="onboarding-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -210,7 +212,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="onboarding-4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -243,7 +245,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="onboarding-5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-5" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -276,7 +278,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="onboarding-6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="onboarding-6" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -311,7 +313,7 @@
 
                 <div class="col-12 row align-items-center justify-content-center">
                     <div class="row align-items-center mt-4 col-10">
-                        <button class="yes-button" data-bs-target="#onboarding-6" data-bs-toggle="modal">LET'S DO IT!</button>
+                        <button class="yes-button" data-bs-dismiss="modal">LET'S DO IT!</button>
                     </div>
                 </div>
             </div>
@@ -324,7 +326,7 @@
     </div>
 
     <!--CONFIGURAÇÕES-->
-    <div class="modal fade" id="configuracoes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="configuracoes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
@@ -335,7 +337,7 @@
                 <h6><strong>CONFIGURAÇÕES</strong></h6>
                 <p>Selecione a língua em que você deseja jogar: </p>
                 <select name="language-selector" class="language-selector">
-                    <option value="en" selected>English</option>
+                    <option value="en">English</option>
                     <option value="pt">Português</option>
                     <option value="de">Deutsch</option>
                 </select>
@@ -354,7 +356,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="finish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal" id="finish" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <!--<div class="modal-header">
@@ -363,7 +365,29 @@
             </div>-->
             <div class="modal-body p-5 text-center row align-items-center justify-content-center">
                 <h6><strong>Jogo Finalizado</strong></h6>
-                <h4>Amanhã tem mais!</h4>
+                <h4>Quer jogar mais? Baixe o app!</h4>
+
+                <div class="countdown-div">
+                    <p>Próxima palavra:</p>
+                    <h1 class="countdown"></h1>
+                </div>
+
+                <hr>
+                    <div class="accordion text-center" id="resposta">
+                    <div class="accordion-item text-center">
+                        <h3 class="accordion-header text-center" id="headingOne">
+                        <button class="accordion-button d-block text-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <strong>REVELAR RESPOSTA</strong>
+                        </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body text-center">
+                            A resposta é: <strong></strong>
+                        </div>
+                        </div>
+                    </div>
+                <hr>
+
                 <p>Estatísticas aqui</p>
 
 

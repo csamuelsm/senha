@@ -3,41 +3,33 @@ let keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
                 ['Z', 'X', 'C', 'V', 'B', 'N', 'M', 'BACKSPACE']]
 
 function keyboard_entry(value) {
-    if (value == 'BACKSPACE') {
-        if ($('.board .selected').html() == "") {
-            backspace()
-        } else {
-            $('.board .selected').html("")
+    //checking if modals are open
+    if ( $('#quit').hasClass('show')
+        || $('#onboarding-1').hasClass('show')
+        || $('#onboarding-2').hasClass('show')
+        || $('#onboarding-3').hasClass('show')
+        || $('#onboarding-4').hasClass('show')
+        || $('#onboarding-5').hasClass('show')
+        || $('#onboarding-6').hasClass('show')
+        || $('#configuracoes').hasClass('show')
+        || $('#finish').hasClass('show') )
+        {
+            // MODAL ESTÁ ABERTO
+            // USUÁRIO NÃO PODE DIGITAR NADA
         }
-    } else if (value == 'ENTER') {
-        // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
-        if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
-            // PALAVRA NÃO PREENCHIDA
-            const t = $('#unfilled');
-            const toast = new bootstrap.Toast(t);
-            toast.show();
-            $('.board .current .tile').addClass("shake-effect")
-            $('.board .current').effect("shake")
-            $('.board .current').promise().done(function(){
-                $('.board .current .tile').removeClass("shake-effect")
-            })
-        } else {
-            fetchWords().then(palavras => {
-                var tentativa = [];
-                $('.board .current .tile').each(function() {
-                    tentativa.push($(this).children('p').eq(0).html())
-                })
-                tentativa = tentativa.join('');
-                var existe = false;
-                for (var i = 0; i < palavras.length; i++) {
-                    if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
-                }
-                if (existe) {
-                    verify_line()
-                    next_line()
+        else
+        {
+            if (value == 'BACKSPACE') {
+                if ($('.board .selected').html() == "") {
+                    backspace()
                 } else {
-                    //PALAVRA NÃO EXISTE
-                    const t = $('#invalida');
+                    $('.board .selected').html("")
+                }
+            } else if (value == 'ENTER') {
+                // TODO: ANTES DE IR PARA O VERIFY LINE, VERIFICAR SE TODOS OS TILES ESTÃO PREENCHIDOS
+                if ($(".board .current .tile").toArray().some((el) => $(el).html() == "")) {
+                    // PALAVRA NÃO PREENCHIDA
+                    const t = $('#unfilled');
                     const toast = new bootstrap.Toast(t);
                     toast.show();
                     $('.board .current .tile').addClass("shake-effect")
@@ -45,14 +37,40 @@ function keyboard_entry(value) {
                     $('.board .current').promise().done(function(){
                         $('.board .current .tile').removeClass("shake-effect")
                     })
-                }
-            })
+                } else {
+                    fetchWords().then(palavras => {
+                        var tentativa = [];
+                        $('.board .current .tile').each(function() {
+                            tentativa.push($(this).children('p').eq(0).html())
+                        })
+                        tentativa = tentativa.join('');
+                        var existe = false;
+                        for (var i = 0; i < palavras.length; i++) {
+                            if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
+                        }
+                        if (existe) {
+                            verify_line()
+                            next_line()
+                        } else {
+                            //PALAVRA NÃO EXISTE
+                            const t = $('#invalida');
+                            const toast = new bootstrap.Toast(t);
+                            toast.show();
+                            $('.board .current .tile').addClass("shake-effect")
+                            $('.board .current').effect("shake")
+                            $('.board .current').promise().done(function(){
+                                $('.board .current .tile').removeClass("shake-effect")
+                            })
+                        }
+                    })
 
+                }
+            } else {
+                $('.board .selected').html("<p>"+value+"</p>")
+                next_tile()
+            }
         }
-    } else {
-        $('.board .selected').html("<p>"+value+"</p>")
-        next_tile()
-    }
+
 }
 
 $(document).ready(function(){

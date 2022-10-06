@@ -211,3 +211,12 @@ i {
     font-family: 'Roboto', sans-serif;
     padding: 4px;
 }
+
+.modal, .modal-dialog, .modal-content {
+    border-radius: 6px;
+}
+
+.countdown-div p {
+    margin: 0;
+    font-size: 12px;
+}

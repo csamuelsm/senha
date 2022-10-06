@@ -1,5 +1,4 @@
 var palavra;
-var database = './assets/words/pt_5.json'
 
 let start_date = new Date('09/20/2022');
 let date_now = new Date();
@@ -31,6 +30,7 @@ $(document).ready(function(){
 
     fetchWords().then(palavras => {
         palavra = palavras[index].word;
+        $('#resposta .accordion-body strong').html(palavra);
         //console.log(palavra);
 
         let lines = [
