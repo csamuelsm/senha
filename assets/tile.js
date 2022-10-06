@@ -41,6 +41,9 @@ function next_line() {
         const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
 
         setTimeout(function(){finishedModal.show()}, 1000)
+
+        console.log(getTextForTwitter(complete_game))
+        $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
     }
 }
 

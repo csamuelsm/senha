@@ -1,3 +1,75 @@
+function getTextForTwitter(complete_game) {
+    string = "I%20played%20Password!&#010;&#010;"
+    for (var i = 0; i < complete_game.lenght; i++) {
+        for (var j = 0; j < complete_game[i].lenght; j++) {
+            if (complete_game[i][j] == "correto") {
+                string = string + "🟩"
+            } else if (complete_game[i][j] == "existente") {
+                string = string + "🟨"
+            } else if (complete_game[i][j] == "errado") {
+                string = string + "⬛"
+            }
+        }
+        string = string + "&#010;"
+    }
+    string = string + "&#010;&#010;https://csamuelsm.github.io/senha"
+    return "https://twitter.com/intent/tweet?text=" + string
+}
+
+async function fetchTexts(json_name) {
+    const response = await fetch(json_name);
+    const json = await response.json();
+    return json;
+}
+
+function createTexts(lang) {
+    fetchTexts("assets/languages/"+lang+".json").then(textos => {
+        console.log(lang+".json")
+        //QUIT
+        $('#quit_button').html(textos['quit_title']);
+        $('#quit .modal-body h6 strong').html(textos['quit_title']);
+        $('#quit .modal-body p').html(textos['quit_text']);
+        $('#quit .modal-body .yes-button').html(textos['yes_button']);
+        $('#quit .modal-body .no-button').html(textos['no_button']);
+
+        //ENTER BUTTON
+        $('#ENTER p').html(textos['send_button']);
+
+        //SETTINGS
+        $('#configuracoes .modal-body h6 strong').html(textos['settings_title'])
+        $('#configuracoes .modal-body p').html(textos['settings_text'])
+
+        //TOASTS
+        $('#unfilled .toast-body').html(textos['unfilled_word'])
+        $('#invalida .toast-body').html(textos['invalid_word'])
+
+        //MODALS
+        $('#onboarding-1 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-1 .modal-body .onboarding-text').html(textos['onboarding_1'])
+        $('#onboarding-1 .modal-body .yes-button').html(textos['onboarding_1_button'])
+
+        $('#onboarding-2 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-2 .modal-body .onboarding-text').html(textos['onboarding_2'])
+        $('#onboarding-2 .modal-body .yes-button').html(textos['onboarding_2_button'])
+
+        $('#onboarding-3 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-3 .modal-body .onboarding-text').html(textos['onboarding_3'])
+        $('#onboarding-3 .modal-body .yes-button').html(textos['onboarding_3_button'])
+
+        $('#onboarding-4 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-4 .modal-body .onboarding-text').html(textos['onboarding_4'])
+        $('#onboarding-4 .modal-body .yes-button').html(textos['onboarding_4_button'])
+
+        $('#onboarding-5 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-5 .modal-body .onboarding-text').html(textos['onboarding_5'])
+        $('#onboarding-5 .modal-body .yes-button').html(textos['onboarding_5_button'])
+
+        $('#onboarding-6 .modal-body h6 strong').html(textos['title'])
+        $('#onboarding-6 .modal-body .onboarding-text').html(textos['onboarding_6'])
+        $('#onboarding-6 .modal-body .yes-button').html(textos['onboarding_6_button'])
+    })
+}
+
 var userLang = navigator.language || navigator.userLanguage;
 
 var database;
@@ -32,29 +104,39 @@ if (!Cookies.get("lang"))
 $(document).ready(function(){
     if (!Cookies.get("lang"))
     {
+        // Cookies de linguagem não estão setados
         if (/^en\b/.test(userLang)) {
             $('.language-selector option[value="en"]').prop("selected", true)
             Cookies.set("lang", "en")
+            createTexts("en")
         } else if (/^pt\b/.test(userLang)) {
             $('.language-selector option[value="pt"]').prop("selected", true)
             Cookies.set("lang", "pt")
+            createTexts("pt")
         } else if (/^de\b/.test(userLang)) {
             $('.language-selector option[value="de"]').prop("selected", true)
             Cookies.set("lang", "de")
+            createTexts("de")
         } else {
             $('.language-selector option[value="en"]').prop("selected", true)
             Cookies.set("lang", "en")
+            createTexts("en")
         }
     } else {
+        // Cookies de linguagem estão setados
         let lang = Cookies.get("lang")
         if (lang == "en") {
             $('.language-selector option[value="en"]').prop("selected", true)
+            createTexts("en")
         } else if (lang == "pt") {
             $('.language-selector option[value="pt"]').prop("selected", true)
+            createTexts("pt")
         } else if (lang == "de") {
             $('.language-selector option[value="de"]').prop("selected", true)
+            createTexts("de")
         } else {
             $('.language-selector option[value="en"]').prop("selected", true)
+            createTexts("en")
         }
     }
 

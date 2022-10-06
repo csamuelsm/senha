@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Senha</title>
+    <title>Password</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -40,7 +40,7 @@
                     <i class="fa-sharp fa-solid fa-arrow-left"></i>
                 </div>-->
                 <div class="col-12">
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#quit" class="senha-button shadow-sm">QUIT</button>
+                    <button type="button" id="quit_button" data-bs-toggle="modal" data-bs-target="#quit" class="senha-button shadow-sm">QUIT</button>
                 </div>
             </div>
 
@@ -126,7 +126,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>Descubra a palvra secreta no Senha!</p>
+                <p class="onboarding-text">Descubra a palvra secreta no Senha!</p>
                 <img src="assets/logo.png" style="height: 150px;width:auto;" alt="logo"/>
                 <div class="col-12 row align-items-center justify-content-center">
                     <div class="row align-items-center mt-4 col-10">
@@ -151,7 +151,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>Você poderá enviar até 6 palpites para descobrir a palavra do dia.</p>
+                <p class="onboarding-text">Você poderá enviar até 6 palpites para descobrir a palavra do dia.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
                     <div class="tile correto"><p>S</p></div>
@@ -184,7 +184,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>Você poderá enviar um palpite digitando uma palavra e clicando no botao de enviar.</p>
+                <p class="onboarding-text">Você poderá enviar um palpite digitando uma palavra e clicando no botao de enviar.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
                     <div class="tile"><p>C</p></div>
@@ -221,7 +221,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>Ao enviar um palpite, você recebe dicas da palavra secreta. A cor verde indica que a letra está correta.</p>
+                <p class="onboarding-text">Ao enviar um palpite, você recebe dicas da palavra secreta. A cor verde indica que a letra está correta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
                     <div class="tile errado"><p>C</p></div>
@@ -254,7 +254,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>A cor amarela indica que a letra existe na palavra, mas está em posição errada. As letras cinzas não existem na palavra secreta.</p>
+                <p class="onboarding-text">A cor amarela indica que a letra existe na palavra, mas está em posição errada. As letras cinzas não existem na palavra secreta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
                     <div class="tile errado"><p>P</p></div>
@@ -287,7 +287,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p>Use as dicas para dar palpites melhores, que te ajudarão a chegar até a palavra secreta.</p>
+                <p class="onboarding-text">Use as dicas para dar palpites melhores, que te ajudarão a chegar até a palavra secreta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
                     <div class="tile errado"><p>C</p></div>
@@ -396,7 +396,9 @@
 
                 <div class="col-12 row align-items-center justify-content-center">
                     <div class="row align-items-center mt-4 col-10">
-                        <button class="yes-button">COMPARTILHAR</button>
+                        <a class="twitter-share-link" href="https://twitter.com/intent/tweet?text=I%20played%20Password!">
+                            <button class="yes-button">COMPARTILHAR</button>
+                        </a>
                     </div>
                 </div>
             </div>

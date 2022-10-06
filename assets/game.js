@@ -1,5 +1,7 @@
 var delay = 100
 
+var complete_game = []
+
 function verify_line() {
     var tentativa = []
     $('.board .current .tile').each(function() {
@@ -47,6 +49,10 @@ function verify_line() {
         }
 
     }
+
+    complete_game.push(estados)
+    console.log(complete_game)
+
     if (estados.every((e) => e == 'correto')) {
         // USUÁRIO ACERTOU
         // JOGO FINALIZA
@@ -58,5 +64,8 @@ function verify_line() {
         const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
 
         setTimeout(function(){finishedModal.show()}, 1500)
+
+        console.log(getTextForTwitter(complete_game))
+        $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
     }
 }
