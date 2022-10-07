@@ -27,8 +27,22 @@ function updateStats(complete_game) {
     }
 
     //streak
+    let today = new Date()
+    if (Cookies.get('last_played')) {
+        let last_played = new Date(Cookies.get('last-played'))
+
+        today.setUTCHours(0,0,0,0)
+        last_played.setUTCHours(0,0,0,0)
+
+        if (today.getTime() != last_played.getTime()) {
+            Cookies.set('times_played', parseInt(Cookies.get('times_played')) + 1)
+        }
+    } else {
+        Cookies.set('times_played', 1)
+    }
+
     if (win) {
-        let today = new Date()
+
         if (Cookies.get('last_played')) {
             let last_played = new Date(Cookies.get('last-played'))
 
