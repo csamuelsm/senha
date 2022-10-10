@@ -7,6 +7,10 @@ let index = Math.ceil(diff/(1000.0 * 3600.0 * 24.0));
 
 var win = false;
 
+const api = Cookies.withAttributes({expires:365});
+
+var already_played = false;
+
 async function fetchWords() {
     const response = await fetch(database);
     const json = await response.json();
@@ -36,6 +40,12 @@ $(document).ready(function(){
             showStats();
             const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
             finishedModal.show()
+
+            $('.board .current').removeClass('current')
+            $('.selected').removeClass('selected')
+            $('.ep_banner_div').removeClass('hide')
+
+            already_played = true;
         }
     }
 
@@ -56,7 +66,8 @@ $(document).ready(function(){
         for (var i = 0; i < lines.length; i++) {
             for (var j = 0; j < palavra.length; j++) {
                 if (i == 0 && j == 0) {
-                    lines[i].append('<div class="tile selected" id="tile1"></div>')
+                    if (!already_played) lines[i].append('<div class="tile selected" id="tile1"></div>')
+                    else lines[i].append('<div class="tile" id="tile1"></div>')
                 } else {
                     lines[i].append('<div class="tile" id="tile1"></div>')
                 }

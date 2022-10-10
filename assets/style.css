@@ -234,3 +234,34 @@ i {
     font-size: 14px;
     margin-bottom: 0;
 }
+
+#ep_banner {
+    width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+    background-color: white;
+    color: black;
+}
+
+.accordion-button {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+    background-color: white;
+    color: black;
+}
+
+.panel-body {background-color:white !important;}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+    background-color: white;
+    color: black;
+}

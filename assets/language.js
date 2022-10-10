@@ -93,6 +93,8 @@ function createTexts(lang) {
         $('.stats_tries').html(textos['stats_tries'])
         $('.stats_challenges').html(textos['stats_challenges'])
         $('.stats_share').html(textos['stats_share'])
+        $('#ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
+        $('#finish #ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
     })
 }
 
