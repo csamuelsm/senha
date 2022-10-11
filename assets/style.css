@@ -221,8 +221,18 @@ i {
     font-size: 12px;
 }
 
+.configuracoes-show, .onboarding-show {
+    height: 25px;
+    width: auto;
+    cursor: pointer;
+}
+
 .stats-fill {
     background-color: #FFC700;
+    background-image: url('General-Card-Stats.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .stats .col-12 {
