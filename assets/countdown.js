@@ -1,6 +1,6 @@
 var tomorrow = new Date()
 tomorrow.setDate(tomorrow.getDate()+1)
-tomorrow.setUTCHours(0,0,0,0)
+tomorrow.setHours(0,0,0,0)
 
 $(document).ready(function() {
     setInterval(function() {

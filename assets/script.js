@@ -32,8 +32,8 @@ $(document).ready(function(){
         //console.log(last_played)
         now = new Date()
 
-        last_played.setUTCHours(0, 0, 0, 0);
-        now.setUTCHours(0, 0, 0, 0);
+        last_played.setHours(0, 0, 0, 0);
+        now.setHours(0, 0, 0, 0);
 
         if (last_played.getTime() === now.getTime()) {
             // USUÁRIO JÁ JOGOU HOJE
