@@ -7,8 +7,6 @@ let index = Math.ceil(diff/(1000.0 * 3600.0 * 24.0));
 
 var win = false;
 
-const api = Cookies.withAttributes({expires:365});
-
 var already_played = false;
 
 async function fetchWords() {
@@ -19,16 +17,16 @@ async function fetchWords() {
 
 $(document).ready(function(){
 
-    if(Cookies.get('share_link')) {
+    if(api.get('share_link')) {
         //SETANDO SAHRE_LINK COMO O ÚLTIMO SHARE LINK
-        console.log(Cookies.get('share_link'))
-        $('.twitter-share-link').attr("href", Cookies.get('share_link'))
+        console.log(api.get('share_link'))
+        $('.twitter-share-link').attr("href", api.get('share_link'))
     } else {
         //console.log('Share link cookie not set')
     }
 
-    if (Cookies.get('finished')) {
-        last_played = new Date(Cookies.get('last-played'))
+    if (api.get('finished')) {
+        last_played = new Date(api.get('last-played'))
         //console.log(last_played)
         now = new Date()
 

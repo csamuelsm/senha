@@ -58,14 +58,20 @@ function verify_line() {
         // JOGO FINALIZA
         win = true;
         updateStats(complete_game)
-        Cookies.set('finished', true)
-        Cookies.set('last-played', new Date())
+        api.set('finished', true)
+        api.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
 
-        const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
 
-        setTimeout(function(){finishedModal.show()}, 1500)
+
+
+        setTimeout(function(){
+            const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
+            finishedModal.show()
+            $('.ep_banner_div').removeClass('hide')
+        },
+            1500);
 
         //console.log(getTextForTwitter(complete_game))
         $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))

@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    if (!Cookies.get('onboarding')) {
+    if (!api.get('onboarding')) {
         const onboardingModal = new bootstrap.Modal(document.getElementById('onboarding-1'))
         onboardingModal.show()
-        Cookies.set('onboarding', true)
+        api.set('onboarding', true)
     }
 
     $('.onboarding-show').on('click', function(){
@@ -15,13 +15,16 @@ $(document).ready(function(){
         configuracoesModal.show()
     })
 
-    $('desistir-button').on('click', function() {
+    $('.desistir-button').on('click', function() {
         //USUÁRIO DESISTIU
         updateStats(complete_game)
-        Cookies.set('finished', true)
-        Cookies.set('last-played', new Date())
+        api.set('finished', true)
+        api.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
+
+        $('.ep_banner_div').removeClass('hide')
+
 
         //$('#quit').modal('hide');
 

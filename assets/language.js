@@ -1,10 +1,10 @@
 function getTextForTwitter(complete_game) {
     var string;
-    if (Cookies.get('lang') == "en") {
+    if (api.get('lang') == "en") {
         string = "I%20played%20Password!%0A%0A"
-    } else if (Cookies.get('lang') == "pt") {
+    } else if (api.get('lang') == "pt") {
         string = "Eu%20joguei%20Password!%0A%0A"
-    } else if (Cookies.get('lang') == "de") {
+    } else if (api.get('lang') == "de") {
         string = "Ich%20habe%20Password%20gespielt!%0A%0A"
     } else {
         string = "I%20played%20Password!%0A%0A"
@@ -24,7 +24,7 @@ function getTextForTwitter(complete_game) {
     }
     string = string + "%0Ahttps://csamuelsm.github.io/senha"
 
-    Cookies.set("share_link", string)
+    api.set("share_link", string)
     //console.log("Share link cookie now set")
 
     return "https://twitter.com/intent/tweet?text=" + string
@@ -103,7 +103,7 @@ var userLang = navigator.language || navigator.userLanguage;
 var database;
 
 //selecionando database de acordo com a linguagem
-if (!Cookies.get("lang"))
+if (!api.get("lang"))
 {
     if (/^en\b/.test(userLang)) {
         database = './assets/words/en_5.json'
@@ -115,7 +115,7 @@ if (!Cookies.get("lang"))
         database = './assets/words/en_5.json'
     }
 } else {
-    let lang = Cookies.get("lang")
+    let lang = api.get("lang")
     if (lang == "en") {
         database = './assets/words/en_5.json'
     } else if (lang == "pt") {
@@ -130,29 +130,29 @@ if (!Cookies.get("lang"))
 //console.log(userLang)
 
 $(document).ready(function(){
-    if (!Cookies.get("lang"))
+    if (!api.get("lang"))
     {
         // Cookies de linguagem não estão setados
         if (/^en\b/.test(userLang)) {
             $('.language-selector option[value="en"]').prop("selected", true)
-            Cookies.set("lang", "en")
+            api.set("lang", "en")
             createTexts("en")
         } else if (/^pt\b/.test(userLang)) {
             $('.language-selector option[value="pt"]').prop("selected", true)
-            Cookies.set("lang", "pt")
+            api.set("lang", "pt")
             createTexts("pt")
         } else if (/^de\b/.test(userLang)) {
             $('.language-selector option[value="de"]').prop("selected", true)
-            Cookies.set("lang", "de")
+            api.set("lang", "de")
             createTexts("de")
         } else {
             $('.language-selector option[value="en"]').prop("selected", true)
-            Cookies.set("lang", "en")
+            api.set("lang", "en")
             createTexts("en")
         }
     } else {
         // Cookies de linguagem estão setados
-        let lang = Cookies.get("lang")
+        let lang = api.get("lang")
         if (lang == "en") {
             $('.language-selector option[value="en"]').prop("selected", true)
             createTexts("en")
@@ -173,13 +173,13 @@ $(document).ready(function(){
         // TODO: pegar linguagem selecionada, setar o cookie lang e reiniciar pagina
         let selected_lang = $('.language-selector').children("option:selected").val()
         if (selected_lang == "en") {
-            Cookies.set("lang", "en")
+            api.set("lang", "en")
         } else if (selected_lang == "pt") {
-            Cookies.set("lang", "pt")
+            api.set("lang", "pt")
         } else if (selected_lang == "de") {
-            Cookies.set("lang", "de")
+            api.set("lang", "de")
         } else {
-            Cookies.set("lang", "en")
+            api.set("lang", "en")
         }
         location.reload()
     })

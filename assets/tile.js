@@ -34,14 +34,19 @@ function next_line() {
         // ACABARAM AS CHANCE
         // USUÁRIO PERDEU
         updateStats(complete_game)
-        Cookies.set('finished', true)
-        Cookies.set('last-played', new Date())
+        api.set('finished', true)
+        api.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
 
+
+
         const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
 
-        setTimeout(function(){finishedModal.show()}, 1000)
+        setTimeout(function(){
+            finishedModal.show()
+            $('.ep_banner_div').removeClass('hide')
+        }, 1000)
 
         console.log(getTextForTwitter(complete_game))
         $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
