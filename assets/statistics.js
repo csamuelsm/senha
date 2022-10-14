@@ -8,11 +8,13 @@ function showStats() {
 function updateStats(complete_game) {
 
     //tries
-    let tries = complete_game.length
-    api.set('tries', tries)
+    if (complete_game.length != 0) {
+	let tries = complete_game.length
+    	api.set('tries', tries)
+    }
 
     //tries distribution
-    if (tries == 1) {
+    /*if (tries == 1) {
         api.set('guess_1', parseInt(api.get('guess_1')) + 1)
     } else if (tries == 2) {
         api.set('guess_2', parseInt(api.get('guess_2')) + 1)
@@ -24,11 +26,24 @@ function updateStats(complete_game) {
         api.set('guess_5', parseInt(api.get('guess_5')) + 1)
     } else if (tries == 6) {
         api.set('guess_6', parseInt(api.get('guess_6')) + 1)
-    }
+    }*/
 
     //streak
     let today = new Date()
-    if (api.get('last_played')) {
+    let last_played = new Date(api.get('last-played'))
+    today.setUTCHours(0,0,0,0)
+    last_played.setUTCHours(0,0,0,0)
+    if (today.getTime() != last_played.getTime()){
+	    api.set('times_played', parseInt(api.get('times_played'))+1)
+	    api.set('last-played', new Date())
+    }
+
+    if (win) {
+	    if (parseInt(api.get('streak'))+1 > parseInt(api.get('best_streak'))) 
+		    api.set('best_streak', parseInt(api.get('streak'))+1)
+	    api.set('streak', parseInt(api.get('streak'))+1)
+    }
+    /*if (api.get('last_played')) {
         let last_played = new Date(api.get('last-played'))
 
         today.setUTCHours(0,0,0,0)
@@ -39,9 +54,9 @@ function updateStats(complete_game) {
         }
     } else {
         api.set('times_played', 1)
-    }
+    }*/
 
-    if (win) {
+    /*if (win) {
 
         if (api.get('last_played')) {
             let last_played = new Date(api.get('last-played'))
@@ -71,7 +86,7 @@ function updateStats(complete_game) {
 
     } else {
         api.set('streak', 0)
-    }
+    }*/
 
     showStats()
 
