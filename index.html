@@ -66,6 +66,10 @@
 
     </div>
 
+    <div class="container text-center ep_banner_div hide align-items-center justify-content-center">
+        <a href="#"><img id="ep_banner" src="assets/banners/728 x 90 - Generic Ad - EN.png"/></a>
+    </div>
+
     <div class="container game-cont text-center d-flex justify-content-center align-items-center">
         <div class="board row col-md-8 col-12 d-flex align-items-center justify-content-center">
             <div class="row col-12 d-flex align-items-center justify-content-center current" id="line1"></div>
@@ -75,10 +79,6 @@
             <div class="row col-12 d-flex align-items-center justify-content-center disabled" id="line5"></div>
             <div class="row col-12 d-flex align-items-center justify-content-center disabled" id="line6"></div>
         </div>
-    </div>
-
-    <div class="container text-center ep_banner_div hide align-items-center justify-content-center">
-        <a href="#"><img id="ep_banner" src="assets/banners/728 x 90 - Generic Ad - EN.png"/></a>
     </div>
 
     <div class="container keyboard-cont text-center d-flex justify-content-center align-items-center">
@@ -163,12 +163,19 @@
                 <h6><strong>SENHA</strong></h6>
                 <p class="onboarding-text">Você poderá enviar até 6 palpites para descobrir a palavra do dia.</p>
 
-                <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile correto"><p>S</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile correto"><p>N</p></div>
-                    <div class="tile correto"><p>H</p></div>
-                    <div class="tile correto"><p>A</p></div>
+                <div class="column text-center justify-content-center align-items-center">
+                    
+                    <div class="col-12">
+                        <p class="mb-0"><strong class="text-center secret_word">PALAVRA SECRETA</strong></p>
+                    </div>
+                    <div class="row col-12 d-flex align-items-center justify-content-center mt-0">
+                        
+                        <div class="tile correto" id="tm21"><p>S</p></div>
+                        <div class="tile correto" id="tm22"><p>E</p></div>
+                        <div class="tile correto" id="tm23"><p>N</p></div>
+                        <div class="tile correto" id="tm24"><p>H</p></div>
+                        <div class="tile correto" id="tm25"><p>A</p></div>
+                    </div>
                 </div>
 
                 <div class="col-12 row align-items-center justify-content-center">
@@ -197,11 +204,11 @@
                 <p class="onboarding-text">Você poderá enviar um palpite digitando uma palavra e clicando no botao de enviar.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile"><p>C</p></div>
-                    <div class="tile"><p>E</p></div>
-                    <div class="tile"><p>R</p></div>
-                    <div class="tile"><p>T</p></div>
-                    <div class="tile selected"><p>O</p></div>
+                    <div class="tile"><p id="tm31">C</p></div>
+                    <div class="tile"><p id="tm32">E</p></div>
+                    <div class="tile"><p id="tm33">R</p></div>
+                    <div class="tile"><p id="tm34">T</p></div>
+                    <div class="tile selected"><p id="tm35">O</p></div>
                 </div>
 
                 <div class="col-12 mt-3 d-flex align-items-center justify-content-center" id="keyboard_line3">
@@ -234,11 +241,11 @@
                 <p class="onboarding-text">Ao enviar um palpite, você recebe dicas da palavra secreta. A cor verde indica que a letra está correta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile errado"><p>C</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile errado"><p>R</p></div>
-                    <div class="tile errado"><p>T</p></div>
-                    <div class="tile errado"><p>O</p></div>
+                    <div class="tile errado"><p id="tm41">C</p></div>
+                    <div class="tile correto"><p id="tm42">E</p></div>
+                    <div class="tile errado"><p id="tm43">R</p></div>
+                    <div class="tile errado"><p id="tm44">T</p></div>
+                    <div class="tile errado"><p id="tm45">O</p></div>
                 </div>
 
                 <div class="col-12 row align-items-center justify-content-center">
@@ -267,11 +274,11 @@
                 <p class="onboarding-text">A cor amarela indica que a letra existe na palavra, mas está em posição errada. As letras cinzas não existem na palavra secreta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile errado"><p>P</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile correto"><p>N</p></div>
-                    <div class="tile existente"><p>A</p></div>
-                    <div class="tile existente"><p>S</p></div>
+                    <div class="tile errado"><p  id="tm51">P</p></div>
+                    <div class="tile correto"><p  id="tm52">E</p></div>
+                    <div class="tile correto"><p id="tm53">N</p></div>
+                    <div class="tile existente"><p id="tm54">A</p></div>
+                    <div class="tile existente"><p id="tm55">S</p></div>
                 </div>
 
                 <div class="col-12 row align-items-center justify-content-center">
@@ -300,25 +307,25 @@
                 <p class="onboarding-text">Use as dicas para dar palpites melhores, que te ajudarão a chegar até a palavra secreta.</p>
 
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile errado"><p>C</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile errado"><p>R</p></div>
-                    <div class="tile errado"><p>T</p></div>
-                    <div class="tile errado"><p>O</p></div>
+                    <div class="tile errado"><p id="tm41">C</p></div>
+                    <div class="tile correto"><p id="tm42">E</p></div>
+                    <div class="tile errado"><p id="tm43">R</p></div>
+                    <div class="tile errado"><p id="tm44">T</p></div>
+                    <div class="tile errado"><p id="tm45">O</p></div>
                 </div>
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile errado"><p>P</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile correto"><p>N</p></div>
-                    <div class="tile existente"><p>A</p></div>
-                    <div class="tile existente"><p>S</p></div>
+                    <div class="tile errado"><p id="tm51">P</p></div>
+                    <div class="tile correto"><p id="tm52">E</p></div>
+                    <div class="tile correto"><p id="tm53">N</p></div>
+                    <div class="tile existente"><p id="tm54">A</p></div>
+                    <div class="tile existente"><p id="tm55">S</p></div>
                 </div>
                 <div class="row col-12 d-flex align-items-center justify-content-center">
-                    <div class="tile correto"><p>S</p></div>
-                    <div class="tile correto"><p>E</p></div>
-                    <div class="tile correto"><p>N</p></div>
-                    <div class="tile correto"><p>H</p></div>
-                    <div class="tile correto"><p>A</p></div>
+                    <div class="tile correto"><p id="tm21">S</p></div>
+                    <div class="tile correto"><p id="tm22">E</p></div>
+                    <div class="tile correto"><p id="tm23">N</p></div>
+                    <div class="tile correto"><p id="tm24">H</p></div>
+                    <div class="tile correto"><p id="tm25">A</p></div>
                 </div>
 
                 <div class="col-12 row align-items-center justify-content-center">

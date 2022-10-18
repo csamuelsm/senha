@@ -79,6 +79,14 @@ i {
     margin-bottom: 10px;
 }
 
+.secret_word {
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 0;
+    letter-spacing: .1rem;
+}
+
 .game-cont {
     flex: 1;
 }

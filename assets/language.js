@@ -41,7 +41,7 @@ function createTexts(lang) {
         console.log(lang+".json")
         //QUIT
         $('#quit_button').html(textos['quit_title']);
-        $('#quit .modal-body h6 strong').html(textos['quit_title']);
+        $('#quit .modal-body h6 strong').html(textos['quit_question']);
         $('#quit .modal-body p').html(textos['quit_text']);
         $('#quit .modal-body .yes-button').html(textos['yes_button']);
         $('#quit .modal-body .no-button').html(textos['no_button']);
@@ -57,6 +57,9 @@ function createTexts(lang) {
         $('#unfilled .toast-body').html(textos['unfilled_word'])
         $('#invalida .toast-body').html(textos['invalid_word'])
 
+        //TITLE
+        $('title').html(textos['title'])
+
         //MODALS
         $('#onboarding-1 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-1 .modal-body .onboarding-text').html(textos['onboarding_1'])
@@ -64,23 +67,62 @@ function createTexts(lang) {
 
         $('#onboarding-2 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-2 .modal-body .onboarding-text').html(textos['onboarding_2'])
+        $('#onboarding-2 .modal-body .secret_word').html(textos['secret_word'])
         $('#onboarding-2 .modal-body .yes-button').html(textos['onboarding_2_button'])
+        $('#onboarding-2 .modal-body #tm21').html(textos['tm21'])
+        $('#onboarding-2 .modal-body #tm22').html(textos['tm22'])
+        $('#onboarding-2 .modal-body #tm23').html(textos['tm23'])
+        $('#onboarding-2 .modal-body #tm24').html(textos['tm24'])
+        $('#onboarding-2 .modal-body #tm25').html(textos['tm25'])
 
         $('#onboarding-3 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-3 .modal-body .onboarding-text').html(textos['onboarding_3'])
         $('#onboarding-3 .modal-body .yes-button').html(textos['onboarding_3_button'])
+        $('#onboarding-3 .modal-body #tm31').html(textos['tm31'])
+        $('#onboarding-3 .modal-body #tm32').html(textos['tm32'])
+        $('#onboarding-3 .modal-body #tm33').html(textos['tm33'])
+        $('#onboarding-3 .modal-body #tm34').html(textos['tm34'])
+        $('#onboarding-3 .modal-body #tm35').html(textos['tm35'])
 
         $('#onboarding-4 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-4 .modal-body .onboarding-text').html(textos['onboarding_4'])
         $('#onboarding-4 .modal-body .yes-button').html(textos['onboarding_4_button'])
+        $('#onboarding-4 .modal-body #tm41').html(textos['tm31'])
+        $('#onboarding-4 .modal-body #tm42').html(textos['tm32'])
+        $('#onboarding-4 .modal-body #tm43').html(textos['tm33'])
+        $('#onboarding-4 .modal-body #tm44').html(textos['tm34'])
+        $('#onboarding-4 .modal-body #tm45').html(textos['tm35'])
 
         $('#onboarding-5 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-5 .modal-body .onboarding-text').html(textos['onboarding_5'])
         $('#onboarding-5 .modal-body .yes-button').html(textos['onboarding_5_button'])
+        $('#onboarding-5 .modal-body #tm51').html(textos['tm41'])
+        $('#onboarding-5 .modal-body #tm52').html(textos['tm42'])
+        $('#onboarding-5 .modal-body #tm53').html(textos['tm43'])
+        $('#onboarding-5 .modal-body #tm54').html(textos['tm44'])
+        $('#onboarding-5 .modal-body #tm55').html(textos['tm45'])
 
         $('#onboarding-6 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-6 .modal-body .onboarding-text').html(textos['onboarding_6'])
         $('#onboarding-6 .modal-body .yes-button').html(textos['onboarding_6_button'])
+
+        $('#onboarding-6 .modal-body #tm41').html(textos['tm31'])
+        $('#onboarding-6 .modal-body #tm42').html(textos['tm32'])
+        $('#onboarding-6 .modal-body #tm43').html(textos['tm33'])
+        $('#onboarding-6 .modal-body #tm44').html(textos['tm34'])
+        $('#onboarding-6 .modal-body #tm45').html(textos['tm35'])
+
+        $('#onboarding-6 .modal-body #tm51').html(textos['tm41'])
+        $('#onboarding-6 .modal-body #tm52').html(textos['tm42'])
+        $('#onboarding-6 .modal-body #tm53').html(textos['tm43'])
+        $('#onboarding-6 .modal-body #tm54').html(textos['tm44'])
+        $('#onboarding-6 .modal-body #tm55').html(textos['tm45'])
+
+        $('#onboarding-6 .modal-body #tm21').html(textos['tm21'])
+        $('#onboarding-6 .modal-body #tm22').html(textos['tm22'])
+        $('#onboarding-6 .modal-body #tm23').html(textos['tm23'])
+        $('#onboarding-6 .modal-body #tm24').html(textos['tm24'])
+        $('#onboarding-6 .modal-body #tm25').html(textos['tm25'])
 
         //FINISH MODAL
         $('.finished_title').html(textos['finished_title'])
