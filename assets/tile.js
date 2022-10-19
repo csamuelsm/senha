@@ -33,23 +33,26 @@ function next_line() {
     } else {
         // ACABARAM AS CHANCE
         // USUÁRIO PERDEU
-        updateStats(complete_game)
-        api.set('finished', true)
-        api.set('last-played', new Date())
-        $('.board .current .selected').removeClass('selected')
-        $('.board .current').removeClass('current')
+        if(!win) {
+            updateStats(complete_game)
+            api.set('finished', true)
+            api.set('last-played', new Date())
+            $('.board .current .selected').removeClass('selected')
+            $('.board .current').removeClass('current')
 
 
 
-        const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
+            const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
 
-        setTimeout(function(){
-            finishedModal.show()
-            $('.ep_banner_div').removeClass('hide')
-        }, 1000)
+            setTimeout(function(){
+                finishedModal.show()
+                $('.ep_banner_div').removeClass('hide')
+            }, 1000)
 
-        console.log(getTextForTwitter(complete_game))
-        $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
+            console.log(getTextForTwitter(complete_game))
+            $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
+        }
+
     }
 }
 

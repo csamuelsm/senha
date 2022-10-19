@@ -81,6 +81,10 @@
         </div>
     </div>
 
+    <div class="container text-center ep_banner_div hide align-items-center justify-content-center">
+        <a href="#"><button class='play_more_button shadow mb-3'><h2>JOGUE MAIS</h2></button></a>
+    </div>
+
     <div class="container keyboard-cont text-center d-flex justify-content-center align-items-center">
         <div class="keyboard row col-md-8 col-12 d-flex align-items-center justify-content-center">
             <div class="col-12 d-flex align-items-center justify-content-center" id="keyboard_line1"></div>
@@ -136,7 +140,7 @@
             </div>
             <div class="modal-body p-5 row align-items-center justify-content-center">
                 <h6><strong>SENHA</strong></h6>
-                <p class="onboarding-text">Descubra a palvra secreta no Senha!</p>
+                <p class="onboarding-text">Descubra a palavra secreta no Senha!</p>
                 <img src="assets/logo.png" style="height: 150px;width:auto;" alt="logo"/>
                 <div class="col-12 row align-items-center justify-content-center">
                     <div class="row align-items-center mt-4 col-10">
@@ -164,12 +168,11 @@
                 <p class="onboarding-text">Você poderá enviar até 6 palpites para descobrir a palavra do dia.</p>
 
                 <div class="column text-center justify-content-center align-items-center">
-                    
-                    <div class="col-12">
+                    <div class="col-12 text-center">
                         <p class="mb-0"><strong class="text-center secret_word">PALAVRA SECRETA</strong></p>
                     </div>
                     <div class="row col-12 d-flex align-items-center justify-content-center mt-0">
-                        
+
                         <div class="tile correto" id="tm21"><p>S</p></div>
                         <div class="tile correto" id="tm22"><p>E</p></div>
                         <div class="tile correto" id="tm23"><p>N</p></div>
@@ -381,10 +384,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-5 text-center row align-items-center justify-content-center">
-                <h6><strong class="finished_title">Jogo Finalizado</strong></h6>
-                <!--<h4 class="finished_text">Quer jogar mais? Baixe o app!</h4>-->
-                <a href="#"><img id="ep_banner" src="assets/banners/728 x 90 - Generic Ad - EN.png"/></a>
 
+                <!--<h4 class="finished_text">Quer jogar mais? Baixe o app!</h4>-->
+                <a href="#"><img id="ep_banner" class="mb-3" src="assets/banners/728 x 90 - Generic Ad - EN.png"/></a>
+
+                <h6 class="mb-0"><strong class="finished_title">Jogo Finalizado</strong></h6>
+                <h3 class="mt-0"><strong class="finished_text">Parabéns!</strong></h3>
                 <div class="countdown-div">
                     <p class="countdown_text">Próxima palavra:</p>
                     <h1 class="countdown"></h1>

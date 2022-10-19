@@ -283,3 +283,17 @@ i {
     background-color: white;
     color: black;
 }
+
+.play_more_button {
+    padding: 3px 15px 3px 15px;
+    border: 0;
+    color: #443501;
+    background-color: #FFC700;
+    background-image: url('General-Card-Stats.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    font-family: "Roboto";
+    font-weight: 800;
+}

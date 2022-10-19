@@ -124,6 +124,29 @@ function createTexts(lang) {
         $('#onboarding-6 .modal-body #tm24').html(textos['tm24'])
         $('#onboarding-6 .modal-body #tm25').html(textos['tm25'])
 
+        //COLORS OF ENTRIES
+        if (lang == 'en') {
+            $('#onboarding-6 .modal-body #tm54').parent().removeClass('existente').addClass('errado');
+            $('#onboarding-5 .modal-body #tm54').parent().removeClass('existente').addClass('errado');
+        } else if (lang == 'de') {
+            //FARBE
+            $('#onboarding-6 .modal-body #tm45').parent().removeClass('errado').addClass('correto');
+            $('#onboarding-6 .modal-body #tm42').parent().removeClass('correto').addClass('errado');
+
+            $('#onboarding-4 .modal-body #tm45').parent().removeClass('errado').addClass('correto');
+            $('#onboarding-4 .modal-body #tm42').parent().removeClass('correto').addClass('errado');
+
+            //HENNA
+            $('#onboarding-6 .modal-body #tm52').parent().removeClass('correto').addClass('existente')
+            $('#onboarding-6 .modal-body #tm54').parent().removeClass('existente').addClass('errado')
+            $('#onboarding-6 .modal-body #tm55').parent().removeClass('existente').addClass('errado')
+
+            $('#onboarding-5 .modal-body #tm52').parent().removeClass('correto').addClass('existente')
+            $('#onboarding-5 .modal-body #tm54').parent().removeClass('existente').addClass('errado')
+            $('#onboarding-5 .modal-body #tm55').parent().removeClass('existente').addClass('errado')
+
+        }
+
         //FINISH MODAL
         $('.finished_title').html(textos['finished_title'])
         $('.finished_text').html(textos['finished_text'])
@@ -137,6 +160,9 @@ function createTexts(lang) {
         $('.stats_share').html(textos['stats_share'])
         $('#ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
         $('#finish #ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
+
+        //PLAY MORE BUTTON
+        $('.play_more_button h2').html(textos['play_more_button'])
     })
 }
 
