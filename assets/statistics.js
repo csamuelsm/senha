@@ -1,5 +1,6 @@
 function showStats() {
-    $('.tries').html(api.get(`${getGameLang()}_tries`))
+    $('.tries').html(
+        `${(100* (parseFloat(api.get(`${getGameLang()}_wins`))/parseFloat(api.get(`${getGameLang()}_times_played`)))).toFixed(2)}%`)
     $('.streak').html(api.get(`${getGameLang()}_streak`))
     $('.best_streak').html(api.get(`${getGameLang()}_best_streak`))
     $('.times_played').html(api.get(`${getGameLang()}_times_played`))
@@ -27,6 +28,9 @@ function updateStats(complete_game) {
         let currStreak = parseInt(api.get(`${getGameLang()}_streak`))
         api.set(`${getGameLang()}_streak`, currStreak+1)
 
+        let curr_wins = api.get(`${getGameLang()}_wins`)
+        api.set(`${getGameLang()}_wins`, curr_wins+1);
+
 	    if (currStreak + 1 > parseInt(api.get(`${getGameLang()}_best_streak`)))
 		    api.set(`${getGameLang()}_best_streak`, currStreak+1)
 
@@ -37,6 +41,7 @@ function updateStats(complete_game) {
 }
 
 $(document).ready(function(){
+    if(!api.get(`${getGameLang()}_wins`)) api.set(`${getGameLang()}_wins`, 0)
     if(!api.get(`${getGameLang()}_streak`)) api.set(`${getGameLang()}_streak`, 0)
     if(!api.get(`${getGameLang()}_times_played`)) api.set(`${getGameLang()}_times_played`, 0)
     if(!api.get(`${getGameLang()}_best_streak`)) api.set(`${getGameLang()}_best_streak`, 0)
