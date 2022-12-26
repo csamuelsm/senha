@@ -171,9 +171,9 @@ function createTexts(lang) {
         $('.config-save').html(textos['config-save'])
 
         //INSTALL URL
-        $('.install_url').each(function(index, element) {
+        /*$('.install_url').each(function(index, element) {
             $(this).attr('href', getInstallUrl());
-        });
+        });*/
     })
 }
 

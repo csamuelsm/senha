@@ -253,7 +253,7 @@ i {
     margin-bottom: 0;
 }
 
-#ep_banner {
+#ep_banner1, #ep_banner2, #ep_banner {
     width: 100%;
 }
 
@@ -298,6 +298,6 @@ i {
     font-weight: 800;
 }
 
-.logo > h2 {
+.logo h2 {
     font-family: 'Roboto';
 }
