@@ -2,6 +2,14 @@ var delay = 100
 
 var complete_game = []
 
+function complete_game_string() {
+    let cg_string = []
+    for (let i = 0; i < complete_game.length; i++) {
+        cg_string.push(complete_game[i].join(','));
+    }
+    return cg_string.join(';');
+}
+
 function verify_line() {
     var tentativa = []
     $('.board .current .tile').each(function() {
@@ -59,10 +67,11 @@ function verify_line() {
         win = true;
         updateStats(complete_game)
         api.set(`${getGameLang()}_finished`, true)
-        api.set('last-played', new Date())
+        api.set(`${getGameLang()}_last-played`, new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
         api.set(`${getGameLang()}_words`, get_words());
+        api.set(`${getGameLang()}_estados`, complete_game_string());
 
 
         setTimeout(function(){

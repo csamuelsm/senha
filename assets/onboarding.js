@@ -1,8 +1,8 @@
 $(document).ready(function(){
-    if (!api.get('onboarding')) {
+    if (!api.get(`${getGameLang()}_onboarding`)) {
         const onboardingModal = new bootstrap.Modal(document.getElementById('onboarding-1'))
         onboardingModal.show()
-        api.set('onboarding', true)
+        api.set(`${getGameLang()}_onboarding`, true)
     }
 
     $('.onboarding-show').on('click', function(){
@@ -19,9 +19,11 @@ $(document).ready(function(){
         //USUÁRIO DESISTIU
         updateStats(complete_game)
         api.set(`${getGameLang()}_finished`, true)
-        api.set('last-played', new Date())
+        api.set(`${getGameLang()}_last-played`, new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
+        api.set(`${getGameLang()}_words`, get_words());
+        api.set(`${getGameLang()}_estados`, complete_game_string());
 
         $('.ep_banner_div').removeClass('hide')
 

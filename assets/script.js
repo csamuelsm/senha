@@ -29,34 +29,12 @@ async function read_game(lang) {
 
 $(document).ready(function(){
 
-    if(api.get('share_link')) {
+    if(api.get(`${getGameLang()}_share_link`)) {
         //SETANDO SAHRE_LINK COMO O ÚLTIMO SHARE LINK
-        console.log(api.get('share_link'))
-        $('.twitter-share-link').attr("href", api.get('share_link'))
+        console.log(api.get(`${getGameLang()}_share_link`))
+        $('.twitter-share-link').attr("href", api.get(`${getGameLang()}_share_link`))
     } else {
         //console.log('Share link cookie not set')
-    }
-
-    if (api.get(`${getGameLang()}_finished`)) {
-        last_played = new Date(api.get('last-played'))
-        //console.log(last_played)
-        now = new Date()
-
-        last_played.setHours(0, 0, 0, 0);
-        now.setHours(0, 0, 0, 0);
-
-        if (last_played.getTime() === now.getTime()) {
-            // USUÁRIO JÁ JOGOU HOJE
-            showStats();
-            const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
-            finishedModal.show()
-
-            $('.board .current').removeClass('current')
-            $('.selected').removeClass('selected')
-            $('.ep_banner_div').removeClass('hide')
-
-            already_played = true;
-        }
     }
 
     read_game(getGameLang()).then(palavras => {
@@ -73,16 +51,59 @@ $(document).ready(function(){
             $('#line6')
         ]
 
-        for (var i = 0; i < lines.length; i++) {
-            for (var j = 0; j < palavra.length; j++) {
-                if (i == 0 && j == 0) {
-                    if (!already_played) lines[i].append('<div class="tile selected" id="tile1"></div>')
-                    else lines[i].append('<div class="tile" id="tile1"></div>')
-                } else {
-                    lines[i].append('<div class="tile" id="tile1"></div>')
+        if (api.get(`${getGameLang()}_finished`)) {
+            last_played = new Date(api.get(`${getGameLang()}_last-played`))
+            //console.log(last_played)
+            now = new Date()
+
+            last_played.setHours(0, 0, 0, 0);
+            now.setHours(0, 0, 0, 0);
+
+            if (last_played.getTime() === now.getTime()) {
+                // USUÁRIO JÁ JOGOU HOJE
+                showStats();
+                const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
+                finishedModal.show()
+
+                $('.board .current').removeClass('current')
+                $('.selected').removeClass('selected')
+                $('.ep_banner_div').removeClass('hide')
+
+                if(api.get(`${getGameLang()}_words`)){
+                    let filled_words = api.get(`${getGameLang()}_words`).split(', ');
+                    let estados = api.get(`${getGameLang()}_estados`).split(';');
+                    //console.log(filled_words);
+                    for (let i = 0; i < filled_words.length; i++) {
+                        let filled_word = filled_words[i].split('');
+                        //console.log(filled_word);
+                        if (filled_word.length > 0) {
+                            let estados_word = estados[i].split(',');
+                            filled_word.forEach((element, index) => {
+                                lines[i].append(`<div class="tile ${estados_word[index]}" id="tile1"><p>${element}</p></div>`)
+                            })
+                        } else {
+                            for (let j = 0; j < palavra.length; j++) {
+                                lines[i].append('<div class="tile" id="tile1"></div>');
+                            }
+                        }
+                    }
+                }
+
+                already_played = true;
+            }
+        } else {
+            for (var i = 0; i < lines.length; i++) {
+                for (var j = 0; j < palavra.length; j++) {
+                    if (i == 0 && j == 0) {
+                        if (!already_played) lines[i].append('<div class="tile selected" id="tile1"></div>')
+                        else lines[i].append('<div class="tile" id="tile1"></div>')
+                    } else {
+                        lines[i].append('<div class="tile" id="tile1"></div>')
+                    }
                 }
             }
         }
+
     })
 })
 
