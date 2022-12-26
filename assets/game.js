@@ -58,12 +58,11 @@ function verify_line() {
         // JOGO FINALIZA
         win = true;
         updateStats(complete_game)
-        api.set('finished', true)
+        api.set(`${getGameLang()}_finished`, true)
         api.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')
-
-
+        api.set(`${getGameLang()}_words`, get_words());
 
 
         setTimeout(function(){
@@ -76,4 +75,25 @@ function verify_line() {
         //console.log(getTextForTwitter(complete_game))
         $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
     }
+}
+
+function get_words() {
+    let lines = [
+        '#line1',
+        '#line2',
+        '#line3',
+        '#line4',
+        '#line5',
+        '#line6'
+    ]
+    var words = []
+    for (let i = 0; i < lines.length; i++) {
+        word = []
+        $(`${lines[i]} .tile`).each(function(){
+            word.push($(this).children('p').eq(0).html());
+        })
+        words.push(word.join(''));
+    }
+
+    return words.join(', ');
 }

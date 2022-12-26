@@ -39,6 +39,8 @@ async function fetchTexts(json_name) {
 function createTexts(lang) {
     fetchTexts("assets/languages/"+lang+".json").then(textos => {
         console.log(lang+".json")
+        $('.title_top').html(textos['title']);
+
         //QUIT
         $('#quit_button').html(textos['quit_title']);
         $('#quit .modal-body h6 strong').html(textos['quit_question']);
@@ -158,15 +160,25 @@ function createTexts(lang) {
         $('.stats_tries').html(textos['stats_tries'])
         $('.stats_challenges').html(textos['stats_challenges'])
         $('.stats_share').html(textos['stats_share'])
-        $('#ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
+        $('#ep_banner1').attr('src', 'assets/banners/'+textos['ep_banner'])
+        $('#ep_banner2').attr('src', 'assets/banners/'+textos['ep_banner'])
         $('#finish #ep_banner').attr('src', 'assets/banners/'+textos['ep_banner'])
 
         //PLAY MORE BUTTON
         $('.play_more_button h2').html(textos['play_more_button'])
+
+        //CONFIG MODAL
+        $('.config-save').html(textos['config-save'])
+
+        //INSTALL URL
+        $('.install_url').each(function(index, element) {
+            $(this).attr('href', getInstallUrl());
+        });
     })
 }
 
-var userLang = navigator.language || navigator.userLanguage;
+//var userLang = navigator.language || navigator.userLanguage;
+var userLang = getGameLang() || 'en';
 
 var database;
 
@@ -204,18 +216,22 @@ $(document).ready(function(){
         if (/^en\b/.test(userLang)) {
             $('.language-selector option[value="en"]').prop("selected", true)
             api.set("lang", "en")
+            setGameLang("en")
             createTexts("en")
         } else if (/^pt\b/.test(userLang)) {
             $('.language-selector option[value="pt"]').prop("selected", true)
             api.set("lang", "pt")
+            setGameLang("pt")
             createTexts("pt")
         } else if (/^de\b/.test(userLang)) {
             $('.language-selector option[value="de"]').prop("selected", true)
             api.set("lang", "de")
+            setGameLang("de")
             createTexts("de")
         } else {
             $('.language-selector option[value="en"]').prop("selected", true)
             api.set("lang", "en")
+            setGameLang("en")
             createTexts("en")
         }
     } else {
@@ -242,12 +258,16 @@ $(document).ready(function(){
         let selected_lang = $('.language-selector').children("option:selected").val()
         if (selected_lang == "en") {
             api.set("lang", "en")
+            setGameLang("en")
         } else if (selected_lang == "pt") {
             api.set("lang", "pt")
+            setGameLang("pt")
         } else if (selected_lang == "de") {
             api.set("lang", "de")
+            setGameLang("de")
         } else {
             api.set("lang", "en")
+            setGameLang("en")
         }
         location.reload()
     })

@@ -297,3 +297,7 @@ i {
     font-family: "Roboto";
     font-weight: 800;
 }
+
+.logo > h2 {
+    font-family: 'Roboto';
+}

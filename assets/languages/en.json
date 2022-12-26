@@ -33,7 +33,7 @@
     "stats_tries": "Attempts",
     "stats_challenges": "Games Played",
     "stats_share": "SHARE",
-    "ep_banner": "728 x 90 - Generic Ad - EN.png",
+    "ep_banner": "generic_en.png",
     "play_more_button": "PLAY MORE",
     "tm21": "H",
     "tm22": "E",
@@ -49,5 +49,6 @@
     "tm42": "E",
     "tm43": "A",
     "tm44": "C",
-    "tm45": "H"
+    "tm45": "H",
+    "config-save": "SAVE"
 }

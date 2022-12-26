@@ -33,7 +33,7 @@
     "stats_tries": "Palpites",
     "stats_challenges": "Jogados",
     "stats_share": "COMPARTILHAR",
-    "ep_banner": "728 x 90 - Generic Ad - PT.png",
+    "ep_banner": "generic_pt.png",
     "play_more_button": "JOGUE MAIS",
     "tm21": "S",
     "tm22": "E",
@@ -49,5 +49,6 @@
     "tm42": "E",
     "tm43": "N",
     "tm44": "A",
-    "tm45": "S"
+    "tm45": "S",
+    "config-save": "SALVAR"
 }

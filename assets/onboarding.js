@@ -18,7 +18,7 @@ $(document).ready(function(){
     $('.desistir-button').on('click', function() {
         //USUÁRIO DESISTIU
         updateStats(complete_game)
-        api.set('finished', true)
+        api.set(`${getGameLang()}_finished`, true)
         api.set('last-played', new Date())
         $('.board .current .selected').removeClass('selected')
         $('.board .current').removeClass('current')

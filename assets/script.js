@@ -15,6 +15,18 @@ async function fetchWords() {
     return json;
 }
 
+async function read_game(lang) {
+    /*
+        Recebe linguagem do jogo e game mode e retorna os dados do JSON
+    */
+    const today = new Date();
+    let timestamp = today.setUTCHours(0, 0, 0, 0);
+    let url = `https://content.everydaycrossword.com/web-games/password/${lang}/${timestamp}.json`;
+    let data = await $.getJSON(url);
+    //console.log(data);
+    return data;
+}
+
 $(document).ready(function(){
 
     if(api.get('share_link')) {
@@ -25,7 +37,7 @@ $(document).ready(function(){
         //console.log('Share link cookie not set')
     }
 
-    if (api.get('finished')) {
+    if (api.get(`${getGameLang()}_finished`)) {
         last_played = new Date(api.get('last-played'))
         //console.log(last_played)
         now = new Date()
@@ -47,8 +59,8 @@ $(document).ready(function(){
         }
     }
 
-    fetchWords().then(palavras => {
-        palavra = palavras[index].word;
+    read_game(getGameLang()).then(palavras => {
+        palavra = palavras['palavra'];
         $('#resposta .accordion-body strong').html(palavra);
         //console.log(palavra);
 

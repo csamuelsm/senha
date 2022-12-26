@@ -35,11 +35,11 @@ function next_line() {
         // USUÁRIO PERDEU
         if(!win) {
             updateStats(complete_game)
-            api.set('finished', true)
+            api.set(`${getGameLang()}_finished`, true)
             api.set('last-played', new Date())
             $('.board .current .selected').removeClass('selected')
             $('.board .current').removeClass('current')
-
+            api.set(`${getGameLang()}_words`, get_words());
 
 
             const finishedModal = new bootstrap.Modal(document.getElementById('finish'))

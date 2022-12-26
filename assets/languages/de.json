@@ -33,7 +33,7 @@
     "stats_tries": "Versuche",
     "stats_challenges": "Gespielte Spiele",
     "stats_share": "TEILEN",
-    "ep_banner": "728 x 90 - Generic Ad - DE.png",
+    "ep_banner": "generic_de.png",
     "play_more_button": "SPIEL MEHR",
     "tm21": "L",
     "tm22": "U",
@@ -49,5 +49,6 @@
     "tm42": "E",
     "tm43": "N",
     "tm44": "N",
-    "tm45": "A"
+    "tm45": "A",
+    "config-save": "SPEICHERN"
 }
