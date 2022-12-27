@@ -10,6 +10,7 @@ var win = false;
 var already_played = false;
 
 async function fetchWords() {
+    database = `./assets/words/${getGameLang()}_${palavra.length}.json`;
     const response = await fetch(database);
     const json = await response.json();
     return json;
