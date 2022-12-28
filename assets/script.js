@@ -91,6 +91,17 @@ $(document).ready(function(){
                 }
 
                 already_played = true;
+            } else {
+                for (var i = 0; i < lines.length; i++) {
+                    for (var j = 0; j < palavra.length; j++) {
+                        if (i == 0 && j == 0) {
+                            if (!already_played) lines[i].append('<div class="tile selected" id="tile1"></div>')
+                            else lines[i].append('<div class="tile" id="tile1"></div>')
+                        } else {
+                            lines[i].append('<div class="tile" id="tile1"></div>')
+                        }
+                    }
+                }
             }
         } else {
             for (var i = 0; i < lines.length; i++) {
