@@ -28,7 +28,7 @@ function updateStats(complete_game) {
         let currStreak = parseInt(api.get(`${getGameLang()}_streak`))
         api.set(`${getGameLang()}_streak`, currStreak+1)
 
-        let curr_wins = api.get(`${getGameLang()}_wins`)
+        let curr_wins = parseInt(api.get(`${getGameLang()}_wins`))
         api.set(`${getGameLang()}_wins`, curr_wins+1);
 
 	    if (currStreak + 1 > parseInt(api.get(`${getGameLang()}_best_streak`)))
