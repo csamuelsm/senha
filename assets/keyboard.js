@@ -50,10 +50,10 @@ function keyboard_entry(value) {
                 //console.log(palavras.length)
                 for (var i = 0; i < palavras.length; i++) {
                     if (tentativa.toLowerCase() == palavras[i].word.toLowerCase()) existe = true;
-                    /*if(palavras[i].word.toLowerCase().localeCompare(tentativa.toLowerCase()) != -1) {
-                        //console.log(palavras[i].word.toLowerCase())
+                    if(palavras[i].word.toLowerCase().localeCompare(tentativa.toLowerCase()) != -1) {
+                        console.log(palavras[i].word.toLowerCase())
                         break;
-                    }*/
+                    }
                 }
                 if (existe) {
                     verify_line()
