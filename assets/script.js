@@ -16,6 +16,14 @@ async function fetchWords() {
     return json;
 }
 
+/*async function fetchWords() {
+    database = `./assets/words/${getGameLang()}.json`;
+    console.log(database);
+    const response = await fetch(database);
+    const json = await response.json();
+    return json;
+}*/
+
 async function read_game(lang) {
     /*
         Recebe linguagem do jogo e game mode e retorna os dados do JSON
@@ -65,6 +73,7 @@ $(document).ready(function(){
                 showStats();
                 const finishedModal = new bootstrap.Modal(document.getElementById('finish'))
                 finishedModal.show()
+                $('#quit_button').addClass("hide");
 
                 $('.board .current').removeClass('current')
                 $('.selected').removeClass('selected')
