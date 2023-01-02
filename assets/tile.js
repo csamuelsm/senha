@@ -39,6 +39,7 @@ function next_line() {
             api.set(`${getGameLang()}_last-played`, new Date())
             $('.board .current .selected').removeClass('selected')
             $('.board .current').removeClass('current')
+            $('#quit_button').addClass("hide");
             //api.set(`${getGameLang()}_words`, get_words());
             api.set(`${getGameLang()}_words`, get_words());
             api.set(`${getGameLang()}_estados`, complete_game_string());
