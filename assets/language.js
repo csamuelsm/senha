@@ -3,9 +3,9 @@ function getTextForTwitter(complete_game) {
     if (api.get('lang') == "en") {
         string = "I%20played%20Password!%0A%0A"
     } else if (api.get('lang') == "pt") {
-        string = "Eu%20joguei%20Password!%0A%0A"
+        string = "Eu%20joguei%20Senha!%0A%0A"
     } else if (api.get('lang') == "de") {
-        string = "Ich%20habe%20Password%20gespielt!%0A%0A"
+        string = "Ich%20habe%20Passwort%20gespielt!%0A%0A"
     } else {
         string = "I%20played%20Password!%0A%0A"
     }
@@ -22,7 +22,8 @@ function getTextForTwitter(complete_game) {
         }
         string = string + "%0A"
     }
-    string = string + "%0Ahttps://csamuelsm.github.io/senha"
+    var gfg = document.URL;
+    string = string + `%0A${gfg}`
 
     api.set("share_link", string)
     //console.log("Share link cookie now set")
