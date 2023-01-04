@@ -31,6 +31,58 @@ function getTextForTwitter(complete_game) {
     return "https://twitter.com/intent/tweet?text=" + string
 }
 
+function createShareString(complete_game) {
+    var string;
+    if (api.get('lang') == "en") {
+        string = "I played Password!\n\n"
+    } else if (api.get('lang') == "pt") {
+        string = "Eu joguei Senha!\n\n"
+    } else if (api.get('lang') == "de") {
+        string = "Ich habe Passwort gespielt!\n\n"
+    } else {
+        string = "I played Password!\n\n"
+    }
+    for (var i = 0; i < complete_game.length; i++) {
+        for (var j = 0; j < complete_game[i].length; j++) {
+            //console.log(complete_game[i][j])
+            if (complete_game[i][j] == "correto") {
+                string = string + "🟩"
+            } else if (complete_game[i][j] == "existente") {
+                string = string + "🟨"
+            } else if (complete_game[i][j] == "errado") {
+                string = string + "🟥"
+            }
+        }
+        string = string + "\n"
+    }
+
+    //string = string + `\n${gfg}`
+
+    api.set(`${getGameLang()}_share_link`, string)
+    //console.log("Share link cookie now set")
+
+    return string
+}
+
+async function share(string) {
+    var gfg = document.URL;
+
+    const shareData = {
+        text: string,
+        url: gfg
+    };
+
+    try {
+        await navigator.share(shareData)
+    } catch (error) {
+        navigator.clipboard.writeText(string + `\n${gfg}`);
+        //alert("Copiado para a área de transferência!");
+        const t = $('#copiado')
+        const toast = new bootstrap.Toast(t);
+        toast.show();
+    }
+}
+
 async function fetchTexts(json_name) {
     const response = await fetch(json_name);
     const json = await response.json();

@@ -83,7 +83,11 @@ function verify_line() {
             1500);
 
         //console.log(getTextForTwitter(complete_game))
-        $('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
+        //$('.twitter-share-link').attr("href", getTextForTwitter(complete_game))
+        const btn = document.querySelector('.stats_share')
+        btn.addEventListener('click', async () => {
+            await share(createShareString(complete_game))
+        });
     }
 }
 

@@ -28,6 +28,11 @@ $(document).ready(function(){
 
         $('.ep_banner_div').removeClass('hide')
 
+        const btn = document.querySelector('.stats_share')
+        btn.addEventListener('click', async () => {
+            await share(createShareString(complete_game))
+        });
+
 
         //$('#quit').modal('hide');
 

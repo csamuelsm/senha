@@ -301,3 +301,7 @@ i {
 .logo h2 {
     font-family: 'Roboto';
 }
+
+#copiado {
+    z-index: 99999;
+}

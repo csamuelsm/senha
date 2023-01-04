@@ -41,7 +41,11 @@ $(document).ready(function(){
     if(api.get(`${getGameLang()}_share_link`)) {
         //SETANDO SAHRE_LINK COMO O ÚLTIMO SHARE LINK
         console.log(api.get(`${getGameLang()}_share_link`))
-        $('.twitter-share-link').attr("href", api.get(`${getGameLang()}_share_link`))
+        //$('.twitter-share-link').attr("href", api.get(`${getGameLang()}_share_link`))
+        const btn = document.querySelector('.stats_share')
+        btn.addEventListener('click', async () => {
+            await share(api.get(`${getGameLang()}_share_link`))
+        });
     } else {
         //console.log('Share link cookie not set')
     }
