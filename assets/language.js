@@ -118,12 +118,12 @@ function createTexts(lang) {
         //MODALS
         $('#onboarding-1 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-1 .modal-body .onboarding-text').html(textos['onboarding_1'])
-        $('#onboarding-1 .modal-body .yes-button').html(textos['onboarding_1_button'])
+        $('#onboarding-1 .yes-button').html(textos['onboarding_1_button'])
 
         $('#onboarding-2 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-2 .modal-body .onboarding-text').html(textos['onboarding_2'])
         $('#onboarding-2 .modal-body .secret_word').html(textos['secret_word'])
-        $('#onboarding-2 .modal-body .yes-button').html(textos['onboarding_2_button'])
+        $('#onboarding-2 .yes-button').html(textos['onboarding_2_button'])
         $('#onboarding-2 .modal-body #tm21').html(textos['tm21'])
         $('#onboarding-2 .modal-body #tm22').html(textos['tm22'])
         $('#onboarding-2 .modal-body #tm23').html(textos['tm23'])
@@ -132,7 +132,7 @@ function createTexts(lang) {
 
         $('#onboarding-3 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-3 .modal-body .onboarding-text').html(textos['onboarding_3'])
-        $('#onboarding-3 .modal-body .yes-button').html(textos['onboarding_3_button'])
+        $('#onboarding-3 .yes-button').html(textos['onboarding_3_button'])
         $('#onboarding-3 .modal-body #tm31').html(textos['tm31'])
         $('#onboarding-3 .modal-body #tm32').html(textos['tm32'])
         $('#onboarding-3 .modal-body #tm33').html(textos['tm33'])
@@ -141,7 +141,7 @@ function createTexts(lang) {
 
         $('#onboarding-4 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-4 .modal-body .onboarding-text').html(textos['onboarding_4'])
-        $('#onboarding-4 .modal-body .yes-button').html(textos['onboarding_4_button'])
+        $('#onboarding-4 .yes-button').html(textos['onboarding_4_button'])
         $('#onboarding-4 .modal-body #tm41').html(textos['tm31'])
         $('#onboarding-4 .modal-body #tm42').html(textos['tm32'])
         $('#onboarding-4 .modal-body #tm43').html(textos['tm33'])
@@ -150,7 +150,7 @@ function createTexts(lang) {
 
         $('#onboarding-5 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-5 .modal-body .onboarding-text').html(textos['onboarding_5'])
-        $('#onboarding-5 .modal-body .yes-button').html(textos['onboarding_5_button'])
+        $('#onboarding-5 .yes-button').html(textos['onboarding_5_button'])
         $('#onboarding-5 .modal-body #tm51').html(textos['tm41'])
         $('#onboarding-5 .modal-body #tm52').html(textos['tm42'])
         $('#onboarding-5 .modal-body #tm53').html(textos['tm43'])
@@ -159,7 +159,7 @@ function createTexts(lang) {
 
         $('#onboarding-6 .modal-body h6 strong').html(textos['title'])
         $('#onboarding-6 .modal-body .onboarding-text').html(textos['onboarding_6'])
-        $('#onboarding-6 .modal-body .yes-button').html(textos['onboarding_6_button'])
+        $('#onboarding-6 .yes-button').html(textos['onboarding_6_button'])
 
         $('#onboarding-6 .modal-body #tm41').html(textos['tm31'])
         $('#onboarding-6 .modal-body #tm42').html(textos['tm32'])

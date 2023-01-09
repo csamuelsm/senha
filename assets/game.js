@@ -30,7 +30,7 @@ function verify_line() {
 
             }, 500)
         })(i, tentativa);*/
-        if (tentativa[i].toLowerCase() == palavra.toLowerCase()[i]) {
+        if (tentativa[i].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == (palavra.toLowerCase()[i]).normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
             $('.board .current .tile').eq(i).addClass('correto')
             $('.board .current .tile').eq(i).delay(i*delay).effect("bounce", {times:1}, 300)
             $('.keyboard-button[value='+tentativa[i]+']').addClass('correto')
@@ -38,8 +38,8 @@ function verify_line() {
         } else {
             let existe = false;
             for (var j = 0; j < palavra.length; j++) {
-                if (tentativa[i].toLowerCase() == palavra.toLowerCase()[j]
-                    && tentativa[j].toLowerCase() != palavra.toLowerCase()[j]) {
+                if (tentativa[i].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == (palavra.toLowerCase()[j]).normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                    && tentativa[j].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") != (palavra.toLowerCase()[j]).normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
                         existe = true
                     }
             }
